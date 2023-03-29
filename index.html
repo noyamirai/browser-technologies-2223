@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="NL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Technologies</title>
+</head>
+<body>
+
+
+    <main>
+
+        <!-- 
+            PERSOONLIJKE GEGEVENS:  
+            email
+            cellphone
+            naam 
+        -->
+
+        <!-- 
+            VAKKEN:
+            - Projectweek 1 kick-off: Joost Faber, Robert Spier, Vasilis van Gemert en Sanne 't Hooft
+            - Web App from Scratch: Joost Faber en Robert Spier
+            - CSS to the Rescue: Vasilis van Gemert en Sanne 't Hooft
+
+            - Progressive Web Apps: Robert Spier en Declan Rek (Voorhoede)
+            - Browser Technologies: Vasilis van Gemert en Peter Paul Koch (QuirksMode)
+            - Projectweek 2: Robert Spier, Declan Rek (Voorhoede), Vasilis van Gemert en Peter Paul Koch (QuirksMode)
+
+            - Real-Time Web: Justus Sturkenboom en Shyanta Vleugel (Triple)
+            - Human Centered Design: Eric Groot Kormelink en Koop Reynders
+            - Projectweek 3: Justus Sturkenboom, Shyanta Vleugel (Triple), Eric Groot Kormelink en Koop Reynders
+
+            - Meesterproef: Joost Faber, Koop Reynders, Justus Sturkenboom, Vasilis van Gemert, Sanne 't Hooft en Robert Spier
+        -->
+
+        <article>
+
+            <h1>Web Design & Development</h1>
+            <p>Intro tekst hier</p>
+
+            <!-- PREFILLED -->
+            <form action="enquete.html" method="GET">
+                <fieldset>
+                    <legend>Mijn persoonlijke gegevens</legend>
+
+                    <div>
+                        <label for="name">Naam: *</label>
+                        <input type="text" name="name" id="name" placeholder="Voor- en achternaam" value="Maijla Ikiz" required>
+                    </div>
+
+                    <div>
+                        <label for="email_address">E-mailadres: *</label>
+                        <input type="text" name="email_address" id="email_address" placeholder="studentnaam@hva.nl" value="maijla.ikiz@hva.nl" required>
+                    </div>
+
+                    <div>
+                        <label for="cellphone">Telefoonnummer: *</label>
+                        <input type="tel" name="cellphone" id="cellphone" placeholder="0637495020" value="0683703504" required>
+                    </div>
+
+                </fieldset>
+
+                <!-- server side shows button if user info is unknown -->
+                <!-- <button type="submit">Gegevens opslaan</button> -->
+            </form>
+
+            <section>
+                <h2>Kies een vak om te beoordelen</h2>
+
+                <small>Beoordeling status</small>
+                <div>
+                    <meter id="fuel"
+                        min="0" max="100"
+                        low="33" high="66" optimum="80"
+                        value="0">
+                        0/10 beoordelingen ingevuld
+                    </meter>
+                </div>
+
+                <ul>
+                    <li><a href="/projectweek_1.html">Projectweek 1 kick-off</a></li>
+                    <li><a href="/web_app_from_scratch.html">Web App from Scratch</a></li>
+                    <li><a href="/css_to_the_rescue.html">CSS to the Rescue</a></li>
+                    <li><a href="/progressive_web_apps.html">Progressive Web Apps</a></li>
+                    <li><a href="/browser_technologies.html">Browser Technologies</a></li>
+                    <li><a href="/projectweek_2.html">Projectweek 2</a></li>
+                    <li><a href="/realtime_web.html">Real-Time Web</a></li>
+                    <li><a href="/human_centered_design.html">Human Centered Design</a></li>
+                    <li><a href="/projectweek_3.html">Projectweek 3</a></li>
+                    <li><a href="/meesterproef.html">Meesterproef</a></li>
+                </ul>
+
+                <!-- <details>
+                    <summary>Projectweek 1 kick-off</summary>
+
+                    <h1>Projectweek 1 kick-off <span>(13 februari - 10 maart 2023)</span></h1>
+                    <p>Namen van docenten</p>
+
+                    <form action="/submit.html" method="GET">
+                        <input type="hidden" name="course_selection" value="projectweek_1">
+                        <p>Geef de onderstaande categorieeen met betrekking tot het vak een cijfer van 1-10</p>
+
+                        <fieldset>
+
+                            <legend>Lesstof</legend>
+                            <p>Hoe moeilijk vond je de lesstof?</p>
+
+                            <label><input type="radio" name="material_grade" id="1" required>1</label>
+                            <label><input type="radio" name="material_grade" id="2">2</label>
+                            <label><input type="radio" name="material_grade" id="3">3</label>
+                            <label><input type="radio" name="material_grade" id="4">4</label>
+                            <label><input type="radio" name="material_grade" id="5">5</label>
+                            <label><input type="radio" name="material_grade" id="6">6</label>
+                            <label><input type="radio" name="material_grade" id="7">7</label>
+                            <label><input type="radio" name="material_grade" id="8">8</label>
+                            <label><input type="radio" name="material_grade" id="9">9</label>
+                            <label><input type="radio" name="material_grade" id="10">10</label>
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <legend>Uitleg</legend>
+                            <p>Hoe duidelijk werd alles, waaronder de lesstof, uitgelegd aan jouw en je medestudenten?</p>
+
+                            <label><input type="radio" name="teaching_grade" id="1" required>1</label>
+                            <label><input type="radio" name="teaching_grade" id="2">2</label>
+                            <label><input type="radio" name="teaching_grade" id="3">3</label>
+                            <label><input type="radio" name="teaching_grade" id="4">4</label>
+                            <label><input type="radio" name="teaching_grade" id="5">5</label>
+                            <label><input type="radio" name="teaching_grade" id="6">6</label>
+                            <label><input type="radio" name="teaching_grade" id="7">7</label>
+                            <label><input type="radio" name="teaching_grade" id="8">8</label>
+                            <label><input type="radio" name="teaching_grade" id="9">9</label>
+                            <label><input type="radio" name="teaching_grade" id="10">10</label>
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <legend>Eigen inzicht</legend>
+                            <p>Hoe goed begreep je het vak?</p>
+
+                            <label><input type="radio" name="insight_grade" id="1" required>1</label>
+                            <label><input type="radio" name="insight_grade" id="2">2</label>
+                            <label><input type="radio" name="insight_grade" id="3">3</label>
+                            <label><input type="radio" name="insight_grade" id="4">4</label>
+                            <label><input type="radio" name="insight_grade" id="5">5</label>
+                            <label><input type="radio" name="insight_grade" id="6">6</label>
+                            <label><input type="radio" name="insight_grade" id="7">7</label>
+                            <label><input type="radio" name="insight_grade" id="8">8</label>
+                            <label><input type="radio" name="insight_grade" id="9">9</label>
+                            <label><input type="radio" name="insight_grade" id="10">10</label>
+
+                        </fieldset>
+
+                        <a href="/index.html">Annuleren</a>
+                        <button type="submit">Mijn beoordeling opslaan</button>
+                        
+                    </form>
+                </details>
+                <details>
+                    <summary>Web App from Scratch</summary>
+
+                    <h1>Vaknaam <span>(13 februari - 10 maart 2023)</span></h1>
+                    <p>Namen van docenten</p>
+
+                    <form action="/submit.html" method="GET">
+                        <input type="hidden" name="course_selection" value="projectweek_1">
+                        <p>Geef de onderstaande categorieeen met betrekking tot het vak een cijfer van 1-10</p>
+
+                        <fieldset>
+
+                            <legend>Lesstof</legend>
+                            <p>Hoe moeilijk vond je de lesstof?</p>
+
+                            <label><input type="radio" name="material_grade" id="1" required>1</label>
+                            <label><input type="radio" name="material_grade" id="2">2</label>
+                            <label><input type="radio" name="material_grade" id="3">3</label>
+                            <label><input type="radio" name="material_grade" id="4">4</label>
+                            <label><input type="radio" name="material_grade" id="5">5</label>
+                            <label><input type="radio" name="material_grade" id="6">6</label>
+                            <label><input type="radio" name="material_grade" id="7">7</label>
+                            <label><input type="radio" name="material_grade" id="8">8</label>
+                            <label><input type="radio" name="material_grade" id="9">9</label>
+                            <label><input type="radio" name="material_grade" id="10">10</label>
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <legend>Uitleg</legend>
+                            <p>Hoe duidelijk werd alles, waaronder de lesstof, uitgelegd aan jouw en je medestudenten?</p>
+
+                            <label><input type="radio" name="teaching_grade" id="1" required>1</label>
+                            <label><input type="radio" name="teaching_grade" id="2">2</label>
+                            <label><input type="radio" name="teaching_grade" id="3">3</label>
+                            <label><input type="radio" name="teaching_grade" id="4">4</label>
+                            <label><input type="radio" name="teaching_grade" id="5">5</label>
+                            <label><input type="radio" name="teaching_grade" id="6">6</label>
+                            <label><input type="radio" name="teaching_grade" id="7">7</label>
+                            <label><input type="radio" name="teaching_grade" id="8">8</label>
+                            <label><input type="radio" name="teaching_grade" id="9">9</label>
+                            <label><input type="radio" name="teaching_grade" id="10">10</label>
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <legend>Eigen inzicht</legend>
+                            <p>Hoe goed begreep je het vak?</p>
+
+                            <label><input type="radio" name="insight_grade" id="1" required>1</label>
+                            <label><input type="radio" name="insight_grade" id="2">2</label>
+                            <label><input type="radio" name="insight_grade" id="3">3</label>
+                            <label><input type="radio" name="insight_grade" id="4">4</label>
+                            <label><input type="radio" name="insight_grade" id="5">5</label>
+                            <label><input type="radio" name="insight_grade" id="6">6</label>
+                            <label><input type="radio" name="insight_grade" id="7">7</label>
+                            <label><input type="radio" name="insight_grade" id="8">8</label>
+                            <label><input type="radio" name="insight_grade" id="9">9</label>
+                            <label><input type="radio" name="insight_grade" id="10">10</label>
+
+                        </fieldset>
+
+                        <a href="/index.html">Annuleren</a>
+                        <button type="submit">Mijn beoordeling opslaan</button>
+                        
+                    </form>
+                </details> -->
+            </section>
+
+        </article>
+
+    </main>
+
+    
+</body>
+</html>
