@@ -1,0 +1,477 @@
+/* =============================================================================
+  #RESET
+============================================================================= */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0;margin:0 0 1em}
+
+/* =============================================================================
+  #TOOLS
+============================================================================= */
+html { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*, *:before, *:after { -webkit-box-sizing: inherit; -moz-box-sizing: inherit; box-sizing: inherit; }
+
+/* =============================================================================
+  #GENERAL
+============================================================================= */
+* {
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+body {
+	font-family: 'Space Mono', monospace, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+	font-size: .9rem;
+
+  color: hsl(240, 2%, 88%);
+  line-height: 1.4;
+
+  background-color: hsl(216, 12%, 8%);
+}
+
+@media only screen and (min-width: 900px) {
+		body {
+			font-size: 1rem;
+		}
+}
+
+::selection {
+  color: hsl(216, 12%, 8%);
+  background: hsl(240, 2%, 88%);
+}
+
+::-moz-selection {
+  color: hsl(216, 12%, 8%);
+  background: hsl(240, 2%, 88%);
+}
+
+main > footer p::selection {
+	color: hsl(216, 12%, 8%);
+  background: hsl(68, 100%, 51%);
+}
+main > footer p::-moz-selection {
+	color: hsl(216, 12%, 8%);
+  background: hsl(68, 100%, 51%);
+}
+
+main > header p mark::selection,
+h2::selection,
+button::selection {
+	color: hsl(68, 100%, 51%);
+  background-color: hsl(216, 12%, 8%);
+}
+main > header p mark::-moz-selection,
+h2::-moz-selection,
+button::-moz-selection {
+	color: hsl(68, 100%, 51%);
+  background-color: hsl(216, 12%, 8%);
+}
+
+
+img {
+  max-width: 100%;
+  font-style: italic;
+  vertical-align: middle;
+}
+
+/* =============================================================================
+  #TYPOGRAPHY
+============================================================================= */
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 .25rem 0;
+  /* line-height: 1.1; */
+}
+
+/* Add margin top to heading when it comes after another piece of content */
+* + h1, * + h2, * + h3, * + h4, * + h5, * + h6 {
+}
+
+h1 {
+	font-size: 1.4rem;
+	text-transform: uppercase;
+}
+
+h2 {
+	display: inline-block;
+	padding: .25rem .375rem;
+
+	background-color: hsl(68, 100%, 51%);
+	/* background-color: hsl(68, 100%, 51%); */
+
+	color: hsl(216, 12%, 8%);
+	text-transform: uppercase;
+	font-size: 1rem;
+
+	border-radius: .275rem;
+
+	margin-bottom: .75rem;
+}
+
+p {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 900px) {
+	h1 {
+		font-size: 1.9rem;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+	}
+}
+
+@media only screen and (min-width: 1150px) {
+}
+
+.tag {
+	background-color: #2E343D;
+	padding: 0 .15rem;
+	border-radius: .2rem;
+}
+
+a {
+  color: hsl(206, 62%, 59%);
+}
+
+strong {
+  font-weight: 700;
+}
+
+em, i {
+  font-style: italic;
+}
+
+ul, ol {
+  padding-left: 1.8rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+/* =============================================================================
+  #HEADER
+============================================================================= */
+main > header,
+footer {
+	padding: .75rem;
+	text-align: center;
+	background-color: hsl(68, 100%, 51%);
+	font-size: .9rem;
+}
+
+footer {
+	background-color: hsl(274, 92%, 57%);
+}
+
+	main > header p,
+	footer p {
+		color: hsl(216, 12%, 8%);
+		font-weight: 700;
+		margin: 0;
+		letter-spacing: .015rem;
+	}
+
+	footer p {
+		color: #FFF;
+	}
+
+	main mark {
+		background-color: transparent;
+	}
+
+article > header {
+	position: relative;
+	background-color: hsl(216, 12%, 8%);
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+		article > header * {
+			margin: 0;
+		}
+
+		.web_dev-symbol {
+			display: none;
+		}
+
+	@media only screen and (min-width: 390px) {
+		article > header p{
+			padding-right: 4.5rem;
+		}
+
+		.web_dev-symbol.web_dev-symbol--mobile {
+			display: block;
+		}
+
+		.web_dev-symbol {
+			position: absolute;
+
+			right: -.45rem;
+			top: 50%;
+
+			transform: translateY(-50%);
+			/* top: -.325rem; */
+
+			width: 4.5rem;
+			height: auto;
+		}
+	}
+
+	@media only screen and (min-width: 900px) {
+		.web_dev-symbol.web_dev-symbol--mobile {
+			display: none;
+		}
+
+		.web_dev-symbol.web_dev-symbol--desktop {
+			display: block;
+		}
+
+		.web_dev-symbol {
+			right: unset;
+			left: -5rem;
+			top: -5rem;
+
+			transform: none;
+			width: 6.25rem;
+		}
+
+		article > header p{
+			padding-right: 0;
+		}
+	}
+
+		article > header h1 {
+			margin-bottom: 0;
+		}
+
+		article > header p {
+			font-size: 1rem;
+		}
+
+		@media only screen and (min-width: 600px) {
+				
+		}
+
+		@media only screen and (min-width: 900px) {
+				article > header p {
+					font-size: 1.1rem;
+				}
+		}
+
+		@media only screen and (min-width: 1150px) {
+		
+		}
+
+
+/* main content */
+article > div {
+	margin: 0 auto;
+}
+
+/* =============================================================================
+  #MAIN
+============================================================================= */
+article {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 1.2rem 1rem 2rem 1rem;
+
+	transition: max-width 250ms ease-in-out;
+}
+
+@media only screen and (min-width: 600px) {
+		article {
+			max-width: 80%;
+			padding: 2rem 0;
+		}
+}
+
+@media only screen and (min-width: 900px) {
+		article {
+			padding: 7.5rem 1rem 3rem 1rem;
+			max-width: 65%;
+		}
+}
+
+@media only screen and (min-width: 1150px) {
+		article {
+			max-width: 50%;
+		}
+}
+
+section + form,
+form + section {
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+
+	/* border-top: .125rem solid #c8ced8; */
+}
+
+
+hr {
+  margin: 1.8rem 0;
+
+  height: .15rem;
+
+  background-color: hsl(218, 12%, 27%);
+  border: none;
+  border-radius: .3rem;
+}
+
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 900px) {
+	hr {
+		margin: 2.5rem 0;
+	}
+}
+
+@media only screen and (min-width: 1150px) {
+}
+
+/* =============================================================================
+  #PAGES
+============================================================================= */
+.default {}
+
+/* =============================================================================
+  #FORM
+============================================================================= */
+form {
+		display: inline-block;
+    width: 100%;
+}
+
+	fieldset {}
+
+		fieldset div > * {
+			display: block;
+			width: 100%;
+		}
+
+			label {
+				text-transform: uppercase;
+				font-weight: 700;
+				margin-bottom: .7rem;
+			}
+
+			@media only screen and (min-width: 900px) {
+					label {
+						font-size: 1.2rem;
+					}
+			}
+
+			input[type="text"],
+			input[type="tel"],
+			input[type="number"] {
+				display: block;
+				border: none;
+
+				border-radius: .275rem;
+				padding: 1rem .875rem;
+				font-size: .875rem;
+				background-color: hsl(216, 14%, 21%);
+				border: .125rem solid hsl(216, 14%, 21%);
+				transition: border 250ms ease-in-out;
+			}
+
+			input[type="checkbox"] {
+				margin: 0;
+			}
+
+			input:hover {
+				border: .125rem solid hsl(217, 14%, 32%);
+			}
+
+			input:focus,
+			a:focus {
+				outline: none;
+				border: .125rem solid hsl(68, 100%, 51%);
+			}
+
+			input::placeholder {
+				color: hsl(217, 10%, 43%);
+			}
+
+		fieldset div + div {
+			margin-top: 1.8rem;
+		}
+
+		#personal_info-form fieldset div:last-of-type > * {
+			display: inline-block;
+			width: auto;
+		}
+
+		#personal_info-form fieldset div:last-of-type label {
+			text-transform: none;
+			font-size: .9rem;
+			font-weight: 500;
+			cursor: pointer;
+		}
+
+		legend {
+			font-weight: 700;
+		}
+
+/* =============================================================================
+  #BUTTON
+============================================================================= */
+button {
+	border: none;
+	margin: 0;
+	padding: .575rem .75rem;
+
+	width: auto;
+	overflow: visible;
+
+	background-color: hsl(68, 100%, 51%);
+	color: hsl(216, 12%, 8%);
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1rem;
+	min-width: 11rem;
+
+	border-radius: .275rem;
+	line-height: normal;
+
+	/* Corrects inability to style clickable `input` types in iOS */
+	-webkit-appearance: none;
+
+	display: block;
+	margin: 0 0 0 auto;
+
+	transition: all 250ms ease-in-out;
+	cursor: pointer;
+}
+
+button:focus {
+	border: none;
+	outline-color: hsl(318, 100%, 51%);
+}
+
+button:hover {
+	transform: scale(1.03);
+}
+
+button + *,
+* + button {
+	margin-top: 1.5rem;
+}
