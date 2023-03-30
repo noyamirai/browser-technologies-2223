@@ -29,7 +29,7 @@ body {
 	font-size: .9rem;
 
   color: hsl(240, 2%, 88%);
-  line-height: 1.4;
+  line-height: 1.6;
 
 background-color: hsl(274, 92%, 57%);
 }
@@ -138,9 +138,10 @@ small {
 }
 
 .tag {
-	background-color: #2E343D;
+	background-color: hsl(216, 14%, 40%);
 	padding: 0 .15rem;
 	border-radius: .2rem;
+	white-space: nowrap;
 }
 
 a {
@@ -183,11 +184,16 @@ footer {
 }
 
 	main > header p,
-	footer p {
+	footer p,
+	main > header a {
 		color: hsl(216, 12%, 8%);
 		font-weight: 700;
 		margin: 0;
 		letter-spacing: .015rem;
+	}
+
+	main > header a:focus {
+		border-color: hsl(318, 100%, 51%);
 	}
 
 	footer p {
@@ -269,18 +275,10 @@ article > header {
 			font-size: 1rem;
 		}
 
-		@media only screen and (min-width: 600px) {
-				
-		}
-
 		@media only screen and (min-width: 900px) {
 				article > header p {
 					font-size: 1.1rem;
 				}
-		}
-
-		@media only screen and (min-width: 1150px) {
-		
 		}
 
 
@@ -299,9 +297,9 @@ article > section {
 		width: 5.8rem;
 		height: auto;
 	}
-	
 
-	@media (prefers-reduced-motion: no-preference) {
+
+	@media only screen and (min-width: 900px) and (prefers-reduced-motion: no-preference ) {
 		.floating {
 			transform: translate(0,0); /* Set the initial position of the box */
 			transition: transform 1s ease-in-out; /* Add a transition effect */
@@ -445,6 +443,18 @@ section > header {
 	margin-bottom: .75rem;
 }
 
+	.enquete > header h1 {
+		margin-bottom: .2rem;
+	}
+
+	.enquete > header p {
+		font-size: .875rem;
+	}
+
+	.enquete > header p + p {
+		margin-top: .6rem;
+	}
+
 	section > header h2 {
 		margin-bottom: 0;
 	}
@@ -504,9 +514,9 @@ form {
 			}
 
 			@media only screen and (min-width: 900px) {
-					label {
-						font-size: 1.2rem;
-					}
+				label {
+					font-size: 1rem;
+				}
 			}
 
 			input[type="text"],
@@ -518,8 +528,9 @@ form {
 				border-radius: .275rem;
 				padding: 1rem .875rem;
 				font-size: .875rem;
-				background-color: hsl(216, 14%, 21%);
-				border: .125rem solid hsl(216, 14%, 21%);
+				background-color: transparent;
+				/* background-color: hsl(216, 14%, 40%); */
+				border: .125rem solid hsl(216, 14%, 40%);
 				transition: border 250ms ease-in-out;
 			}
 
@@ -531,17 +542,20 @@ form {
 			}
 
 			input:hover {
-				border: .125rem solid hsl(217, 14%, 32%);
+				border: .125rem solid hsl(68, 100%, 51%);
+				/* border: .125rem solid hsl(217, 14%, 32%); */
 			}
 
 			input:focus,
 			a:focus {
 				outline: none;
+				/* border: .125rem solid hsl(318, 100%, 51%); */
 				border: .125rem solid hsl(68, 100%, 51%);
 			}
 
 			input::placeholder {
-				color: hsl(217, 10%, 43%);
+				color: hsl(216, 14%, 40%);
+				/* color: hsl(217, 10%, 43%); */
 			}
 
 		fieldset div + div {
@@ -567,8 +581,109 @@ form {
 		}
 
 		legend {
+			display: inline-block;
+			padding: 0.25rem 0.375rem;
+			/* color: hsl(240, 2%, 88%); */
+			/* background-color: hsl(274, 92%, 57%); */
+			background-color: hsl(68, 100%, 51%);
+			color: hsl(216, 12%, 8%);
+			text-transform: uppercase;
+			font-size: 1rem;
+			border-radius: 0.275rem;
+			margin-bottom: 0.75rem;
 			font-weight: 700;
 		}
+
+	fieldset + fieldset {
+		margin-top: 1.5rem;
+	}
+
+	.enquete fieldset > div:first-of-type {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		
+		gap: .3rem;
+		margin-top: .75rem;
+	}
+
+	.enquete fieldset > div {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		
+		gap: .3rem;
+		margin-top: .75rem;
+	}
+
+	.enquete fieldset > div:last-of-type {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: .8rem;
+	}
+
+	.enquete fieldset > div:last-child > * {
+		width: auto;
+		font-weight: 500;
+	}
+
+		.enquete label > span {
+			/* width: 2.5rem;
+			height: 2.5rem; */
+			border: .125rem solid hsl(216, 14%, 40%);
+
+			height: 4rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			margin: 0;
+			border-radius: .175rem;
+			cursor: pointer;
+			transition: all 250ms ease-in-out;
+		}
+
+		.enquete label {
+			margin: 0;
+		}
+
+		@media only screen and (min-width: 600px) {
+			.enquete fieldset > div:first-of-type {
+				grid-template-columns: repeat(10, 1fr);
+			}
+
+			.enquete label > span {
+				height: 3.5rem;
+			}
+		}
+		@media only screen and (min-width: 900px) {
+
+
+			.enquete label > span {
+				height: 3.6rem;
+				font-size: 1rem;
+			}
+		}
+
+			.enquete input[type="radio"] {
+				opacity: 0;
+				position: absolute;
+				appearance: none;
+			}
+
+			.enquete label:hover span,
+			.enquete input[type="radio"]:focus + span {
+				transform: scale(1.08);
+				/* border: .125rem solid hsl(318, 100%, 51%); */
+				border: .125rem solid hsl(68, 100%, 51%);
+			}
+
+			.enquete input[type="radio"]:checked + span {
+				border: .125rem solid hsl(68, 100%, 51%);
+				background-color: hsl(68, 100%, 51%);
+				color: hsl(216, 12%, 8%);
+			}
 
 
 .checkbox-wrap label > span:first-of-type {
@@ -581,10 +696,10 @@ form {
 
 	border-radius: .25rem;
 
-	background-color: hsl(216, 14%, 21%);
+	background-color: hsl(216, 14%, 40%);
 	transition: all 270ms ease-in-out;
 
-	border: .125rem solid hsl(216, 14%, 21%);
+	border: .125rem solid hsl(216, 14%, 40%);
 
 	margin-right: 1rem;
 }
@@ -600,10 +715,11 @@ fieldset small {
 
 
 .checkbox-wrap label:hover > span:first-of-type {
-	border: .125rem solid hsl(217, 14%, 32%);
+	border: .125rem solid hsl(68, 100%, 51%);
 }
 
 .checkbox-wrap input[type="checkbox"]:focus-visible + label > span:first-of-type {
+	/* border-color: hsl(318, 100%, 51%); */
 	border-color: hsl(68, 100%, 51%);
 }
 
@@ -664,7 +780,7 @@ fieldset small {
 	.course__item {
 		border-radius: .275rem;
 		/* background-color: hsl(216 13% 40%); */
-		/* background-color: hsl(216, 14%, 21%); */
+		/* background-color: hsl(216, 14%, 40%); */
 		transition: all 250ms ease-in-out;
 	}
 
@@ -719,13 +835,13 @@ fieldset small {
 		}
 		.course__item a:focus {
 			transform: scale(1.01);
+			/* border: .125rem solid hsl(318, 100%, 51%); */
 			border: .125rem solid hsl(68, 100%, 51%);
 		}
 
 		.course__item + .course__item {
 			margin-top: 1rem;
 		}
-
 
 		progress {
 			/* Reset the default appearance */
@@ -738,12 +854,12 @@ fieldset small {
 		}
 
 		progress[value]::-webkit-progress-bar {
-			background-color: hsl(216, 14%, 21%);
-			border-radius: .275rem;
+			background-color: hsl(240, 2%, 88%);
+			border-radius: .5rem;
 		}
 
 		progress[value]::-webkit-progress-value {
-			background-color: hsl(146, 92%, 57%);
+			background-color: hsl(274, 92%, 57%);
 			border-radius: .5rem;
 			transition: all 250ms ease-in-out;
 		}
@@ -751,7 +867,7 @@ fieldset small {
 /* =============================================================================
   #BUTTON
 ============================================================================= */
-button {
+button, .btn {
 	border: none;
 	margin: 0;
 	padding: .575rem .75rem;
@@ -768,23 +884,75 @@ button {
 
 	border-radius: .275rem;
 	line-height: normal;
+	text-align: center;
 
 	/* Corrects inability to style clickable `input` types in iOS */
 	-webkit-appearance: none;
 
 	display: block;
-	margin: 0 0 0 auto;
 
+	border: .175rem solid hsl(68, 100%, 51%);
 	transition: all 250ms ease-in-out;
 	cursor: pointer;
+	text-decoration: none;
 }
 
-button:focus {
-	border: none;
-	outline-color: hsl(318, 100%, 51%);
+
+	.btn--secondary {
+		background-color: transparent;
+		border: .175rem solid hsl(216, 12%, 8%);
+		padding: 0;
+		text-decoration: underline;
+		color: hsl(240, 2%, 88%);
+		min-width: auto;
+	}
+
+
+.btn-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column-reverse;
+	margin-top: 1.5rem;
 }
 
-button:hover {
+	.btn-container .btn,
+	.btn-container button {
+		/* margin: 0; */
+		width: 100%;
+	}
+
+	.btn-container > * + * {
+		margin: 0 0 1.2rem 0;
+	}
+
+	@media only screen and (min-width: 600px) {
+		
+		.btn-container {
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: row;
+		}
+
+			.btn-container > * + *,
+			.btn-container .btn,
+			.btn-container button {
+				width: auto;
+			}
+
+			.btn-container > * + * {
+				margin: 0;
+			}
+	}
+
+button:focus,
+.btn:focus {
+	outline: none;
+	border-color: hsl(318, 100%, 51%);
+}
+
+button:hover,
+.btn:hover {
 	transform: scale(1.03);
 }
 
@@ -792,3 +960,70 @@ button + *,
 * + button {
 	margin-top: 1.5rem;
 }
+
+
+
+
+/* RANGE */
+
+/* input[type="range"] {
+	outline: 0;
+	border: 0;
+
+	border-radius: 500px;
+
+	width: 100%;
+
+	margin: 24px 0 16px;
+
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	input[type="range"] {
+		overflow: hidden;
+		height: 1.25rem;
+
+		-webkit-appearance: none;
+		background-color: #2e343d;
+	}
+
+	input[type="range"]::-webkit-slider-runnable-track {
+		height: 1.25rem;
+		-webkit-appearance: none;
+
+		color: #444;
+
+		transition: box-shadow 0.2s ease-in-out;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		width: 1.25rem;
+		-webkit-appearance: none;
+		height: 1.25rem;
+		cursor: ew-resize;
+		background: #2e343d;
+		box-shadow: -340px 0 0 330px hsl(68, 100%, 51%), inset 0 0 0 3px hsl(68, 100%, 51%);
+		border-radius: 50%;
+		transition: box-shadow 0.2s ease-in-out;
+		position: relative;
+	}
+
+	input[type="range"]:active::-webkit-slider-thumb {
+		background: #2e343d;
+		box-shadow: -340px 0 0 330px hsl(68, 100%, 51%), inset 0 0 0 3px hsl(68, 100%, 51%);
+	}
+
+	input[type="range"]::-moz-range-progress {
+		background-color: hsl(68, 100%, 51%); 
+	}
+	input[type="range"]::-moz-range-track {  
+		background-color: #2e343d;
+	}
+	input[type="range"]::-ms-fill-lower {
+		background-color: hsl(68, 100%, 51%); 
+	}
+	input[type="range"]::-ms-fill-upper {  
+		background-color: #2e343d;
+	}
+} */
