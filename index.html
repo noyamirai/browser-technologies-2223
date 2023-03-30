@@ -59,20 +59,20 @@
             <section>
 
                 <h2>Klaar voor de strijd?</h2>
-                <p>Laat ons en je medestudenten weten wie je bent! Alleen je <mark><span class="tag">{username}</span></mark> zal na afloop op het scoreboard worden getoond</p>
+                <p>Laat ons en je medestudenten weten wie je bent! Alleen je <mark><span class="tag"><span aria-hidden="true">{</span>username<span aria-hidden="true">}</span></span></mark> zal na afloop op het scoreboard worden getoond</p>
 
-                <img class="smiley-stamp image--desktop floating" src="/assets/smiley_stamp.svg" alt="">
+                <img class="smiley-stamp image--desktop floating" src="/assets/smiley_stamp.svg" width="92" alt="">
 
                 <div class="arrow-stamp arrow-stamp--purple image--desktop floating">
-                    <img src="/assets/single_arrow-purple.svg" alt="">
-                    <img src="/assets/single_arrow-green.svg" alt="">
-                    <img src="/assets/single_arrow-purple.svg" alt="">
+                    <img src="/assets/single_arrow-purple.svg"  width="50" alt="">
+                    <img src="/assets/single_arrow-green.svg"  width="50" alt="">
+                    <img src="/assets/single_arrow-purple.svg"  width="50" alt="">
                 </div>
 
                 <div class="arrow-stamp arrow-stamp--green image--desktop floating">
-                    <img src="/assets/single_arrow-green.svg" alt="">
-                    <img src="/assets/single_arrow-purple.svg" alt="">
-                    <img src="/assets/single_arrow-green.svg" alt="">
+                    <img src="/assets/single_arrow-green.svg" width="50" alt="">
+                    <img src="/assets/single_arrow-purple.svg" width="50" alt="">
+                    <img src="/assets/single_arrow-green.svg" width="50" alt="">
                 </div>
 
                 <!-- PREFILLED -->
@@ -80,21 +80,21 @@
                     <fieldset>
 
                         <div>
-                            <label for="name">{ Voor- en achternaam } *</label>
+                            <label for="name"><span aria-hidden="true">{</span> Voor- en achternaam <span aria-hidden="true">}</span> *</label>
                             <input type="text" name="name" id="name" placeholder="Voor- en achternaam" value="Maijla Ikiz" required>
                         </div>
                         <div>
-                            <label for="username">{ Username } *</label>
+                            <label for="username"><span aria-hidden="true">{</span> Username <span aria-hidden="true">}</span> *</label>
                             <input type="text" name="username" id="username" placeholder="Username voor op het scoreboard" required>
                         </div>
 
                         <div>
-                            <label for="email_address">{ E-mailadres } *</label>
+                            <label for="email_address"><span aria-hidden="true">{</span> E-mailadres <span aria-hidden="true">}</span> *</label>
                             <input type="text" name="email_address" id="email_address" placeholder="E-mailadres" value="maijla.ikiz@hva.nl" autocapitalize="off" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
                         </div>
 
                         <div>
-                            <label for="studentnumber">{ Studentnummer } *</label>
+                            <label for="studentnumber"><span aria-hidden="true">{</span> Studentnummer <span aria-hidden="true">}</span> *</label>
                             <input type="text" inputmode="numeric" pattern="[5-6][0-9]{8}" name="studentnumber" id="studentnumber" placeholder="Telefoonnummer" value="0683703504" required>
                         </div>
 
@@ -102,7 +102,7 @@
                         <div class="checkbox-wrap">
                             <input type="checkbox" name="anonymous" id="anonymous">
                             <label for="anonymous">
-                                <span><img src="/assets/check-icon.svg" alt="Checkmark icon"></span>
+                                <span><img src="/assets/check-icon.svg" alt="Checkmark icon" width="26"></span>
                                 <p>Anonymous Mode<br><small>(Je username zal niet zichtbaar zijn op het scoreboard)</small></p>
                             </label>
                         </div>
