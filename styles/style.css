@@ -168,6 +168,9 @@ ol {
   list-style: decimal;
 }
 
+.hide {
+	display: none;
+}
 /* =============================================================================
   #HEADER
 ============================================================================= */
@@ -767,6 +770,19 @@ fieldset small {
 	.checkbox-wrap input[type="checkbox"]:checked + label > span:first-of-type img {
 		animation-name: checkmarkAnimation; 
 	}
+
+
+.message {
+	background-color: hsl(274, 92%, 57%);
+    margin-top: 1rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.275rem;
+}
+
+	.message p {
+		color: hsl(240, 2%, 88%);
+		font-size: .775rem;
+	}
 /* =============================================================================
   #COURSES
 ============================================================================= */
@@ -852,6 +868,7 @@ fieldset small {
 			width: 30%;
 			height: .8rem;
 			border-radius: .5rem;
+			border: none; /* Needed for Firefox */
 		}
 
 		progress[value]::-webkit-progress-bar {
@@ -863,6 +880,11 @@ fieldset small {
 			background-color: hsl(274, 92%, 57%);
 			border-radius: .5rem;
 			transition: all 250ms ease-in-out;
+		}
+
+		progress[value]::-moz-progress-bar {
+			background-color: hsl(274, 92%, 57%);
+			border: none;
 		}
 
 /* =============================================================================
@@ -906,6 +928,10 @@ button, .btn {
 		text-decoration: underline;
 		color: hsl(240, 2%, 88%);
 		min-width: auto;
+	}
+
+	.default button {
+		margin: 0 0 0 auto;
 	}
 
 
@@ -963,7 +989,14 @@ button + *,
 }
 
 
+button:disabled {
+	opacity: 40%;
+	cursor: default;
+}
 
+button:disabled:hover {
+	transform: none;
+}
 
 /* RANGE */
 

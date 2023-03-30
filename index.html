@@ -44,7 +44,7 @@
             - Meesterproef: Joost Faber, Koop Reynders, Justus Sturkenboom, Vasilis van Gemert, Sanne 't Hooft en Robert Spier
         -->
 
-        <article>
+        <article class="default">
 
             <header>
                 <img class="web_dev-symbol image--mobile floating" src="/assets/web_dev_symbol-mobile.svg" width="72" alt="Web Dev Wars">
@@ -79,25 +79,25 @@
                 <form action="dashboard.html" method="GET" id="personal_info-form">
                     <fieldset>
 
-                        <div>
+                        <div data-input-wrapper data-input-type="name">
                             <label for="name"><span aria-hidden="true">{</span> Voor- en achternaam <span aria-hidden="true">}</span> *</label>
                             <input type="text" name="name" id="name" placeholder="Voor- en achternaam" value="Maijla Ikiz" required>
                         </div>
-                        <div>
+                        
+                        <div data-input-wrapper data-input-type="username">
                             <label for="username"><span aria-hidden="true">{</span> Username <span aria-hidden="true">}</span> *</label>
-                            <input type="text" name="username" id="username" placeholder="Username voor op het scoreboard" required>
+                            <input type="text" pattern="[A-Za-z0-9._-]{4}" name="username" id="username" placeholder="Username voor op het scoreboard" required>
                         </div>
 
-                        <div>
-                            <label for="email_address"><span aria-hidden="true">{</span> E-mailadres <span aria-hidden="true">}</span> *</label>
-                            <input type="text" name="email_address" id="email_address" placeholder="E-mailadres" value="maijla.ikiz@hva.nl" autocapitalize="off" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
+                        <div data-input-wrapper data-input-type="email">
+                            <label for="email"><span aria-hidden="true">{</span> E-mailadres <span aria-hidden="true">}</span> *</label>
+                            <input type="text" name="email" id="email" placeholder="E-mailadres" value="maijla.ikiz@hva.nl" autocapitalize="off" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
                         </div>
 
-                        <div>
+                        <div data-input-wrapper data-input-type="studentnumber">
                             <label for="studentnumber"><span aria-hidden="true">{</span> Studentnummer <span aria-hidden="true">}</span> *</label>
-                            <input type="text" inputmode="numeric" pattern="[5-6][0-9]{8}" name="studentnumber" id="studentnumber" placeholder="Telefoonnummer" value="0683703504" required>
+                            <input type="text" inputmode="numeric" pattern="^[56]\d{8}$" name="studentnumber" id="studentnumber" placeholder="Studentnummer" value="500756166" required>
                         </div>
-
 
                         <div class="checkbox-wrap">
                             <input type="checkbox" name="anonymous" id="anonymous">
@@ -116,34 +116,6 @@
 
             </section>
 
-            
-            <!-- <section>
-                <h2>Kies een vak om te beoordelen</h2>
-
-                <small>Beoordeling status</small>
-                <div>
-                    <meter id="fuel"
-                        min="0" max="100"
-                        low="33" high="66" optimum="80"
-                        value="0">
-                        0/10 beoordelingen ingevuld
-                    </meter>
-                </div>
-
-                <ul>
-                    <li><a href="/projectweek_1.html">Projectweek 1 kick-off</a></li>
-                    <li><a href="/web_app_from_scratch.html">Web App from Scratch</a></li>
-                    <li><a href="/css_to_the_rescue.html">CSS to the Rescue</a></li>
-                    <li><a href="/progressive_web_apps.html">Progressive Web Apps</a></li>
-                    <li><a href="/browser_technologies.html">Browser Technologies</a></li>
-                    <li><a href="/projectweek_2.html">Projectweek 2</a></li>
-                    <li><a href="/realtime_web.html">Real-Time Web</a></li>
-                    <li><a href="/human_centered_design.html">Human Centered Design</a></li>
-                    <li><a href="/projectweek_3.html">Projectweek 3</a></li>
-                    <li><a href="/meesterproef.html">Meesterproef</a></li>
-                </ul>
-            </section> -->
-
         </article>
 
         <footer>
@@ -152,6 +124,6 @@
 
     </main>
 
-    
+    <script src="/scripts/validator.js" type="module"></script>
 </body>
 </html>
