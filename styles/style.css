@@ -31,7 +31,7 @@ body {
   color: hsl(240, 2%, 88%);
   line-height: 1.4;
 
-  background-color: hsl(216, 12%, 8%);
+background-color: hsl(274, 92%, 57%);
 }
 
 @media only screen and (min-width: 900px) {
@@ -285,7 +285,7 @@ article > header {
 
 
 /* main content */
-article > div {
+article > section {
 	position: relative;
 	margin: 0 auto;
 }
@@ -355,8 +355,7 @@ article > div {
 			margin: 0;
 			animation-delay: 0s;
 		}
-
-				
+	
 		.arrow-stamp img:nth-of-type(2)  {
 			animation-delay: 0.5s;
 		}
@@ -366,17 +365,16 @@ article > div {
 		}
 
 		@keyframes arrow-light {
-		0% {
-			opacity: 0.3;
+			0% {
+				opacity: 0.3;
+			}
+			50% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0.3;
+			}
 		}
-		50% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0.3;
-		}
-		}
-
 
 	.arrow-stamp.arrow-stamp--purple {
 		left: -7rem;
@@ -387,6 +385,11 @@ article > div {
 		top: 60%;
 	}
 
+	.arrow-stamp--left {
+		right: unset;
+		left: -7rem;
+	}
+
 	@media only screen and (min-width: 900px) {
 		.arrow-stamp, .smiley-stamp {
 			display: block;
@@ -395,6 +398,10 @@ article > div {
 /* =============================================================================
   #MAIN
 ============================================================================= */
+main {
+	background-color: hsl(216, 12%, 8%);
+}
+
 article {
 	max-width: 100%;
 	margin: 0 auto;
@@ -430,6 +437,21 @@ form + section {
 
 	/* border-top: .125rem solid #c8ced8; */
 }
+
+section > header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: .75rem;
+}
+
+	section > header h2 {
+		margin-bottom: 0;
+	}
+
+	section > header h2 + * {
+		margin-left: .75rem;
+	}
 
 
 hr {
@@ -526,12 +548,12 @@ form {
 			margin-top: 1.8rem;
 		}
 
-		#personal_info-form fieldset div:last-of-type > * {
+		.checkbox-wrap > * {
 			display: inline-block;
 			width: auto;
 		}
 
-		#personal_info-form fieldset div:last-of-type label {
+		.checkbox-wrap label {
 			display: flex;
 			align-items: center;
 			
@@ -549,7 +571,7 @@ form {
 		}
 
 
-#personal_info-form fieldset div:last-of-type label > span:first-of-type {
+.checkbox-wrap label > span:first-of-type {
 	position: relative;
 	display: block;
 
@@ -567,25 +589,25 @@ form {
 	margin-right: 1rem;
 }
 
-#personal_info-form fieldset p {
+fieldset p {
 	margin: 0;
 	font-weight: 700;
 }
 
-#personal_info-form fieldset small {
+fieldset small {
 	font-weight: 500;
 }
 
 
-#personal_info-form fieldset div:last-of-type label:hover > span:first-of-type {
+.checkbox-wrap label:hover > span:first-of-type {
 	border: .125rem solid hsl(217, 14%, 32%);
 }
 
-#personal_info-form fieldset div:last-of-type input[type="checkbox"]:focus-visible + label > span:first-of-type {
+.checkbox-wrap input[type="checkbox"]:focus-visible + label > span:first-of-type {
 	border-color: hsl(68, 100%, 51%);
 }
 
-#personal_info-form fieldset div:last-of-type input[type="checkbox"]:checked + label > span:first-of-type {
+.checkbox-wrap input[type="checkbox"]:checked + label > span:first-of-type {
 	border-color: hsl(68, 100%, 51%);
 	background-color: hsl(68, 100%, 51%);
 }
@@ -607,7 +629,7 @@ form {
 	}
 }
 
-	#personal_info-form fieldset div:last-of-type label > span:first-of-type img {
+	.checkbox-wrap label > span:first-of-type img {
 		opacity: 0;
 
 		transition: all 270ms ease-in-out;
@@ -626,9 +648,106 @@ form {
 		padding: .275rem;
 	}
 
-	#personal_info-form fieldset div:last-of-type input[type="checkbox"]:checked + label > span:first-of-type img {
+	.checkbox-wrap input[type="checkbox"]:checked + label > span:first-of-type img {
 		animation-name: checkmarkAnimation; 
 	}
+/* =============================================================================
+  #COURSES
+============================================================================= */
+.courses {
+	list-style: none;
+	padding: 0;
+
+	margin-top: 1rem;
+}
+
+	.course__item {
+		border-radius: .275rem;
+		/* background-color: hsl(216 13% 40%); */
+		/* background-color: hsl(216, 14%, 21%); */
+		transition: all 250ms ease-in-out;
+	}
+
+		.course__item a {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: .875rem 1rem;
+
+			border-radius: .275rem;
+			text-decoration: none;
+			color: hsl(240, 2%, 88%);
+			border: .125rem solid hsl(240, 2%, 88%);
+		}
+
+			.course__item a > * {
+				display: inline-block;
+				margin: 0;
+			}
+
+			.course__item h3 {
+				font-size: .9rem;
+			}
+
+			.course__item p {
+				font-size: .8rem;
+			}
+
+				.course__item p > span {
+					display: none;
+				}
+
+				@media only screen and (min-width: 600px) {
+					.course__item p > span {
+						display: inline-block;
+					}
+				}
+
+			.course__item .tag {
+				font-weight: 700;
+				padding: .25rem .375rem;
+				color: hsl(216, 12%, 8%);
+				background-color: hsl(240, 2%, 88%);
+			}
+
+			.course__item .tag.tag--completed {
+				background-color: hsl(146, 92%, 57%);
+			}
+
+		.course__item:hover {
+			transform: scale(1.01);
+		}
+		.course__item a:focus {
+			transform: scale(1.01);
+			border: .125rem solid hsl(68, 100%, 51%);
+		}
+
+		.course__item + .course__item {
+			margin-top: 1rem;
+		}
+
+
+		progress {
+			/* Reset the default appearance */
+			-webkit-appearance: none;
+			appearance: none;
+
+			width: 30%;
+			height: .8rem;
+			border-radius: .5rem;
+		}
+
+		progress[value]::-webkit-progress-bar {
+			background-color: hsl(216, 14%, 21%);
+			border-radius: .275rem;
+		}
+
+		progress[value]::-webkit-progress-value {
+			background-color: hsl(146, 92%, 57%);
+			border-radius: .5rem;
+			transition: all 250ms ease-in-out;
+		}
+
 /* =============================================================================
   #BUTTON
 ============================================================================= */

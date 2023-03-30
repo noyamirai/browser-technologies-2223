@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="NL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="theme-color" content="#deff05">
+
+    <title>Select a course - Web Development Wars</title>
+
+    <link rel="stylesheet" href="/styles/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+
+        <header>
+            <p><mark>20 studenten zijn je al voor geweest!</mark></p>
+        </header>
+
+        <article>
+
+            <header>
+                <h1>Welkom, noya!</h1>
+                <p>Gaaf dat je ons helpt om de minor te verbeteren.</p>
+
+                <img class="web_dev-symbol image--mobile floating" src="/assets/web_dev_symbol-mobile.svg" width="72" alt="Web Dev Wars">
+                <img class="web_dev-symbol image--desktop floating" src="/assets/web_dev_symbol-desktop.svg" width="72" alt="Web Dev Wars">
+            </header>
+
+            <hr>
+            
+            <section>
+                <h2><s>Code</s> Course reviews</h2>
+                <p>Als student heb je ongetwijfeld veel geleerd over het ontwerpen en bouwen van websites en applicaties. Met onze korte vragenlijst (4 vragen) kun je nu jouw kennis en ervaringen delen over de vakken die je hebt gevolgd tijdens jouw minor</p>
+
+                <p>Na het beoordelen van de vakken ontvang je een score en zie je jouw positie zien op de ranglijst. Maar eerst moet je dus de vakken hieronder nog wel even beoordelen.</p>
+                
+                <img class="smiley-stamp image--desktop floating" src="/assets/smiley_stamp.svg" alt="">
+
+                <div class="arrow-stamp arrow-stamp--green arrow-stamp--left image--desktop floating">
+                    <img src="/assets/single_arrow-purple.svg" alt="">
+                    <img src="/assets/single_arrow-green.svg" alt="">
+                    <img src="/assets/single_arrow-purple.svg" alt="">
+                </div>
+
+                <form action="dashboard.html" method="GET" id="anonymous_mode-form">
+                    <fieldset>
+
+                        <div class="checkbox-wrap">
+                            <input type="checkbox" name="anonymous" id="anonymous">
+                            <label for="anonymous">
+                                <span><img src="/assets/check-icon.svg" alt="Checkmark icon"></span>
+                                <p>Anonymous Mode toch activeren<br><small>(Je username zal niet zichtbaar zijn op het scoreboard)</small></p>
+                            </label>
+                        </div>
+
+                    </fieldset>
+
+                    <!-- <button type="submit">Voorkeur opslaan</button> -->
+                </form>
+
+            </section>
+            <hr>
+            <section>
+
+                <header>
+
+                    <h2>Ready player one</h2>
+                    <progress id="progress" value="45" max="100">0%</progress>
+
+                </header>
+
+                 <div class="arrow-stamp arrow-stamp--green image--desktop floating">
+                    <img src="/assets/single_arrow-green.svg" alt="">
+                    <img src="/assets/single_arrow-purple.svg" alt="">
+                    <img src="/assets/single_arrow-green.svg" alt="">
+                </div>
+
+                <ul class="courses">
+                    <li class="course__item">
+                        <a href="/projectweek_1.html">
+                            <h3>Projectweek 1 kick-off</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/web_app_from_scratch.html">
+                            <h3>Web App from Scratch</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/css_to_the_rescue.html">
+                            <h3>CSS to the Rescue</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/progressive_web_apps.html">
+                            <h3>Progressive Web Apps</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/browser_technologies.html">
+                            <h3>Browser Technologies</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/projectweek_2.html">
+                            <h3>Projectweek 2</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/realtime_web.html">
+                            <h3>Real-Time Web</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/human_centered_design.html">
+                            <h3>Human Centered Design</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/projectweek_3.html">
+                            <h3>Projectweek 3</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                    <li class="course__item">
+                        <a href="/meesterproef.html">
+                            <h3>Meesterproef</h3>
+                            <p class="tag">(0/4) <span>afgerond</span></p>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+        </article>
+
+        <footer>
+            <p>Met liefde gemaakt door CMD</p>
+        </footer>
+
+    </main>
+
+    
+</body>
+</html>
