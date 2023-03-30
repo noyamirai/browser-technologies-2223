@@ -116,6 +116,11 @@ p {
   margin-bottom: 2rem;
 }
 
+small {
+	font-size: .775rem;
+	opacity: 70%;
+}
+
 @media only screen and (min-width: 600px) {
 }
 
@@ -215,7 +220,7 @@ article > header {
 			padding-right: 4.5rem;
 		}
 
-		.web_dev-symbol.web_dev-symbol--mobile {
+		.web_dev-symbol.image--mobile {
 			display: block;
 		}
 
@@ -234,11 +239,11 @@ article > header {
 	}
 
 	@media only screen and (min-width: 900px) {
-		.web_dev-symbol.web_dev-symbol--mobile {
+		.web_dev-symbol.image--mobile {
 			display: none;
 		}
 
-		.web_dev-symbol.web_dev-symbol--desktop {
+		.web_dev-symbol.image--desktop {
 			display: block;
 		}
 
@@ -281,9 +286,112 @@ article > header {
 
 /* main content */
 article > div {
+	position: relative;
 	margin: 0 auto;
 }
 
+	.smiley-stamp {
+		display: none;
+		position: absolute;
+		right: -7rem;
+		top: -3rem;
+
+		width: 5.8rem;
+		height: auto;
+	}
+	
+
+	@media (prefers-reduced-motion: no-preference) {
+		.floating {
+			transform: translate(0,0); /* Set the initial position of the box */
+			transition: transform 1s ease-in-out; /* Add a transition effect */
+			animation: floating 2.5s infinite; /* Add a continuous animation */
+		}
+
+		.floating:nth-of-type(odd) {
+			animation: floating 2.5s -1.5s infinite; /* Add a continuous animation */
+		}
+	}
+
+	@keyframes floating {
+		0% {
+			transform: translate(0,0); /* Set the starting position */
+		}
+		50% {
+			transform: translate(0,-10px); /* Move the box up */
+		}
+		100% {
+			transform: translate(0,0); /* Move the box back to the starting position */
+		}
+	}
+
+	.arrow-stamp {
+		display: none;
+		position: absolute;
+		top: 0;
+
+		width: 3.125rem;
+		height: auto;
+
+	}
+
+		.arrow-stamp > img {
+			display: block;
+			margin-top: -0.5rem;
+			/* opacity: 0.3;
+			animation: arrow-light 1.5s linear infinite; */
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.arrow-stamp > img {
+				display: block;
+				margin-top: -0.5rem;
+				opacity: 0.3;
+				animation: arrow-light 1.5s linear infinite;
+			}
+		}
+
+		.arrow-stamp img:first-of-type {
+			margin: 0;
+			animation-delay: 0s;
+		}
+
+				
+		.arrow-stamp img:nth-of-type(2)  {
+			animation-delay: 0.5s;
+		}
+
+		.arrow-stamp img:last-of-type {
+			animation-delay: 1s;
+		}
+
+		@keyframes arrow-light {
+		0% {
+			opacity: 0.3;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0.3;
+		}
+		}
+
+
+	.arrow-stamp.arrow-stamp--purple {
+		left: -7rem;
+		top: 25%;
+	}
+	.arrow-stamp.arrow-stamp--green {
+		right: -7rem;
+		top: 60%;
+	}
+
+	@media only screen and (min-width: 900px) {
+		.arrow-stamp, .smiley-stamp {
+			display: block;
+		}
+	}
 /* =============================================================================
   #MAIN
 ============================================================================= */
@@ -394,6 +502,9 @@ form {
 			}
 
 			input[type="checkbox"] {
+				opacity: 0;
+				appearance: none;
+				position: absolute;
 				margin: 0;
 			}
 
@@ -421,16 +532,103 @@ form {
 		}
 
 		#personal_info-form fieldset div:last-of-type label {
+			display: flex;
+			align-items: center;
+			
+			position: relative;
 			text-transform: none;
 			font-size: .9rem;
 			font-weight: 500;
 			cursor: pointer;
+
+			margin: 0;
 		}
 
 		legend {
 			font-weight: 700;
 		}
 
+
+#personal_info-form fieldset div:last-of-type label > span:first-of-type {
+	position: relative;
+	display: block;
+
+	width:  1.625rem;
+	min-width: 1.625rem;
+	height:  1.625rem;
+
+	border-radius: .25rem;
+
+	background-color: hsl(216, 14%, 21%);
+	transition: all 270ms ease-in-out;
+
+	border: .125rem solid hsl(216, 14%, 21%);
+
+	margin-right: 1rem;
+}
+
+#personal_info-form fieldset p {
+	margin: 0;
+	font-weight: 700;
+}
+
+#personal_info-form fieldset small {
+	font-weight: 500;
+}
+
+
+#personal_info-form fieldset div:last-of-type label:hover > span:first-of-type {
+	border: .125rem solid hsl(217, 14%, 32%);
+}
+
+#personal_info-form fieldset div:last-of-type input[type="checkbox"]:focus-visible + label > span:first-of-type {
+	border-color: hsl(68, 100%, 51%);
+}
+
+#personal_info-form fieldset div:last-of-type input[type="checkbox"]:checked + label > span:first-of-type {
+	border-color: hsl(68, 100%, 51%);
+	background-color: hsl(68, 100%, 51%);
+}
+
+@keyframes checkmarkAnimation {
+	0% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+
+	50% {
+		opacity: 100%;
+		transform: scale(0.8);
+	}
+
+	100% {
+		opacity: 100%;
+		transform: scale(1);
+	}
+}
+
+	#personal_info-form fieldset div:last-of-type label > span:first-of-type img {
+		opacity: 0;
+
+		transition: all 270ms ease-in-out;
+		animation-duration: .55s;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		animation-direction: normal;
+		animation-iteration-count: 1;
+
+		filter: brightness(0);
+
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		padding: .275rem;
+	}
+
+	#personal_info-form fieldset div:last-of-type input[type="checkbox"]:checked + label > span:first-of-type img {
+		animation-name: checkmarkAnimation; 
+	}
 /* =============================================================================
   #BUTTON
 ============================================================================= */

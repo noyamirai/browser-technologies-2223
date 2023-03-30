@@ -48,8 +48,8 @@
                 <h1>Web Development Wars:</h1>
                 <p>Beoordeel en strijd om de hoogste score in de Minor!</p>
 
-                <img class="web_dev-symbol web_dev-symbol--mobile" src="/assets/web_dev_symbol-mobile.svg" width="72" alt="Web Dev Wars">
-                <img class="web_dev-symbol web_dev-symbol--desktop" src="/assets/web_dev_symbol-desktop.svg" width="72" alt="Web Dev Wars">
+                <img class="web_dev-symbol image--mobile floating" src="/assets/web_dev_symbol-mobile.svg" width="72" alt="Web Dev Wars">
+                <img class="web_dev-symbol image--desktop floating" src="/assets/web_dev_symbol-desktop.svg" width="72" alt="Web Dev Wars">
             </header>
 
             <hr>
@@ -58,6 +58,20 @@
 
                 <h2>Klaar voor de strijd?</h2>
                 <p>Laat ons en je medestudenten weten wie je bent! Alleen je <mark><span class="tag">{username}</span></mark> zal na afloop op het scoreboard worden getoond</p>
+
+                <img class="smiley-stamp image--desktop floating" src="/assets/smiley_stamp.svg" alt="">
+
+                <div class="arrow-stamp arrow-stamp--purple image--desktop floating">
+                    <img src="/assets/single_arrow-purple.svg" alt="">
+                    <img src="/assets/single_arrow-green.svg" alt="">
+                    <img src="/assets/single_arrow-purple.svg" alt="">
+                </div>
+
+                <div class="arrow-stamp arrow-stamp--green image--desktop floating">
+                    <img src="/assets/single_arrow-green.svg" alt="">
+                    <img src="/assets/single_arrow-purple.svg" alt="">
+                    <img src="/assets/single_arrow-green.svg" alt="">
+                </div>
 
                 <!-- PREFILLED -->
                 <form action="dashboard.html" method="GET" id="personal_info-form">
@@ -82,14 +96,17 @@
                             <input type="number" name="studentnumber" id="studentnumber" placeholder="Telefoonnummer" value="0683703504" required>
                         </div>
 
+                        <hr>
+
                         <div>
-                            <label><input type="checkbox" name="anonymous" id="anonymous">Liever anoniem meedoen?</label>
+                            <input type="checkbox" name="anonymous" id="anonymous">
+                            <label for="anonymous">
+                                <span><img src="/assets/check-icon.svg" alt="Checkmark icon"></span>
+                                <p>Anonymous Mode <small>(Je username zal niet zichtbaar zijn op het scoreboard)</small></p>
+                            </label>
                         </div>
 
                     </fieldset>
-
-                    <!-- TODO: optie: anoniem invullen? -->
-                    <!-- TODO: vraag: meedoen met de game? -->
 
                     <button type="submit">Ready set go!</button>
                 </form>
