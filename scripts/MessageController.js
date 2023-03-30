@@ -9,7 +9,10 @@ class MessageController {
             'no_studentnumber': 'Ben je stiekem geen student? Of ben je gewoon je studentnummer vergeten?',
             'invalid_email': 'Helaas pindakaas! Je e-mail komt niet voor in onze database',
             'invalid_username': 'Creatief idee! Wel een beetje kort... Verzin iets met minimaal 4 letters',
-            'invalid_studentnumber': 'Hmm... Je studentnummer moet met een 5 of 6 beginnen en bestaat in totaal uit 8 cijfers'
+            'invalid_studentnumber': 'Hmm... Je studentnummer moet met een 5 of 6 beginnen en bestaat in totaal uit 8 cijfers',
+            'no_material_grade': 'Geen idee waar dit vak over ging? Check de repo op <a href="https://github.com/cmda-minor-web">github</a>',
+            'no_teaching_grade': '',
+            'no_insights_grade': "Don't be shy!"
         }
     }
 

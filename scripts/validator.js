@@ -1,12 +1,14 @@
 const anonymousMode = document.querySelector('input[name="anonymous"');
-const inputWrappers = document.querySelectorAll('[data-input-wrapper]');
+
+const userDataInputWrappers = document.querySelectorAll('[data-input-wrapper]');
+const questionnaireWrappers = document.querySelectorAll('[data-grade-wrapper]');
+
 const submitBtn = document.querySelector('button[type="submit"]');
 const userForm = document.querySelector('#personal_info-form');
+const questionnaireForm = document.querySelector('#questionnaire-form');
 
 import messageController from './MessageController.js';
 const MessageController = new messageController();
-
-import userController from './UserController.js';
 
 window.addEventListener('load', () => {
 
@@ -35,8 +37,8 @@ window.addEventListener('load', () => {
         });
     }
 
-    if (inputWrappers.length > 0) {
-        inputWrappers.forEach(inputWrapper => {
+    if (userDataInputWrappers.length > 0) {
+        userDataInputWrappers.forEach(inputWrapper => {
             const errorLabel = document.createElement('div');
             errorLabel.className = 'message hide';
             const inputType = inputWrapper.getAttribute('data-input-type');
@@ -54,44 +56,89 @@ window.addEventListener('load', () => {
         });
     }
 
+    if (questionnaireWrappers.length > 0) {
+
+        questionnaireWrappers.forEach(fieldSet => {
+            const errorLabel = document.createElement('div');
+            errorLabel.className = 'message hide';
+            const inputType = fieldSet.getAttribute('data-grade-category');
+            errorLabel.setAttribute("data-message-label-for", inputType);
+
+            const message = MessageController.getMessage(`no_${inputType}`);
+            const errorContent = `<p>${message}</p>`;
+            errorLabel.innerHTML = errorContent;
+
+            fieldSet.appendChild(errorLabel);
+
+            const inputElement = fieldSet.querySelector('input');
+
+            inputElement.addEventListener('change', inputHandler)
+        });
+        
+    }
+
 });
 
-userForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    submitHandler(e.target)
-});
+if (userForm) {
+    
+    userForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitHandler(e.target)
+    });
 
-document.addEventListener('invalid', (function(){
-    return function(e) {
-      //prevent the browser from showing default error bubble / hint
-      e.preventDefault();
 
-    const inputWrapper = document.querySelector(`[data-input-type="${e.target.name}"]`);
+    document.addEventListener('invalid', (function(){
+        return function(e) {
+        //prevent the browser from showing default error bubble / hint
+        e.preventDefault();
 
-      if (!inputWrapper.className.includes('hide')) {
-        inputHandler(e);
-      } else {
-        submitHandler(userForm);
-      }
+        const inputWrapper = document.querySelector(`[data-input-type="${e.target.name}"]`);
 
-    };
-})(), true);
+        if (!inputWrapper.className.includes('hide')) {
+            inputHandler(e);
+        } else {
+            submitHandler(userForm);
+        }
 
-function submitHandler(formEl) {
+        };
+    })(), true);
 
-    const formData = new FormData(formEl);
-    const formProps = Object.fromEntries(formData);
-    const UserController = new userController(formProps);
+    function submitHandler(formEl) {
 
-    UserController.saveUserData(formProps);
+        const formData = new FormData(formEl);
+        const formProps = Object.fromEntries(formData);
+        const UserController = new userController(formProps);
 
-    window.location = '/dashboard.html';
+        UserController.saveUserData(formProps);
+
+        window.location = '/dashboard.html';
+    }
+
 }
+
+if (questionnaireForm) {
+
+    questionnaireForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(questionnaireForm);
+        const formProps = Object.fromEntries(formData);
+
+        const GradingController = new gradingController(formProps);
+        GradingController.updateProgress(formProps);
+
+        window.location = '/dashboard.html';
+    });
+
+}
+
 
 function inputHandler(e) {
     const value = e.target.value;
     const inputType = e.target.name;
-    const inputWrapper = document.querySelector(`[data-input-type="${inputType}"]`);
+    const query = userForm ? `[data-input-type="${inputType}"]` : (questionnaireForm ? `[data-grade-category="${inputType}"]` : '');
+
+    const inputWrapper = document.querySelector(query);
     const errorLabel = inputWrapper.querySelector(`[data-message-label-for="${inputType}"]`);
 
     const inputPattern = e.target.pattern;
@@ -133,6 +180,7 @@ function inputHandler(e) {
 
     return;
 }
+
 
 function checkPattern(pattern, value) {
     const term = value;

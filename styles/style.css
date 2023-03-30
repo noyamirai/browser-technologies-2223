@@ -565,6 +565,10 @@ form {
 			margin-top: 1.8rem;
 		}
 
+		.radio-wrapper + .grade-indicator {
+			margin-top: .8rem;
+		}
+
 		.checkbox-wrap > * {
 			display: inline-block;
 			width: auto;
@@ -601,7 +605,7 @@ form {
 		margin-top: 1.5rem;
 	}
 
-	.enquete fieldset > div:first-of-type {
+	.enquete fieldset > .radio-wrapper {
 		position: relative;
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
@@ -610,23 +614,14 @@ form {
 		margin-top: .75rem;
 	}
 
-	.enquete fieldset > div {
-		position: relative;
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		
-		gap: .3rem;
-		margin-top: .75rem;
-	}
-
-	.enquete fieldset > div:last-of-type {
+	.enquete fieldset > .grade-indicator {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		font-size: .8rem;
 	}
 
-	.enquete fieldset > div:last-child > * {
+	.enquete fieldset > .grade-indicator > * {
 		width: auto;
 		font-weight: 500;
 	}
@@ -826,12 +821,12 @@ fieldset small {
 				font-size: .8rem;
 			}
 
-				.course__item p > span {
+				.course__item p > span:nth-last-of-type() {
 					display: none;
 				}
 
 				@media only screen and (min-width: 600px) {
-					.course__item p > span {
+					.course__item p > span:last-of-type {
 						display: inline-block;
 					}
 				}

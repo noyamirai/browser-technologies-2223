@@ -1,21 +1,36 @@
+import gradingController from './GradingController.js';
+const GradingController = new gradingController();
+
 class UserController {
 
     constructor(userData) {
         this.userData = userData;
-        this.name = userData.name;
-        this.username = userData.username ?? null;
-        this.email = userData.email;
-        this.studentnumber = userData.studentnumber;
-        this.anonymous = userData.anonymous ?? null;
+
+        if (Object.keys(this.userData).length > 0) {
+            this.name = userData.name;
+            this.username = userData.username ?? null;
+            this.email = userData.email;
+            this.studentnumber = userData.studentnumber;
+            this.anonymous = userData.anonymous ?? null;
+        }
+
         this.key = 'WEBDEVWARS_USER';
+    }
+
+    clearUserData = () => {
+        localStorage.removeItem(this.key);
     }
 
     saveUserData = () => {
 
         if (!this.supports_html5_storage()) { return false; }
 
+        this.userData.totalProgress = 0;
+
         const jsonData = JSON.stringify(this.userData);
         localStorage.setItem(this.key, jsonData);
+        
+        GradingController.saveProgress();
 
         return true;
     }
