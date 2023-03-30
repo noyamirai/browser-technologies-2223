@@ -793,7 +793,8 @@ fieldset small {
 			border-radius: .275rem;
 			text-decoration: none;
 			color: hsl(240, 2%, 88%);
-			border: .125rem solid hsl(240, 2%, 88%);
+			border: .125rem solid hsl(216, 14%, 40%);
+			/* border: .125rem solid hsl(240, 2%, 88%); */
 		}
 
 			.course__item a > * {
