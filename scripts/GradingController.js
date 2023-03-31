@@ -46,8 +46,25 @@ class GradingController {
             const allGradedCourses = this.listGradedCourses();
             const completedBefore = this.checkIfCompletedBefore(formData.course_selection);
 
+            console.log(allGradedCourses);
+            console.log(completedBefore.length);
+            
+
+            let totalPoints = 0;
+
+            if (allGradedCourses) {
+                totalPoints = allGradedCourses;
+            }
+
+            if (completedBefore.length == 0 && finishedAll) {
+                totalPoints = totalPoints + 1;
+            }
+
+
+            console.log(totalPoints);
+
             const jsonData = JSON.stringify({ 
-                totalProgress: (allGradedCourses + (!completedBefore && finishedAll ? 1 : 0)), 
+                totalProgress: (totalPoints), 
                 courses: this.defaultCourses 
             });
 

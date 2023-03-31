@@ -10,6 +10,9 @@ const questionnaireForm = document.querySelector('#questionnaire-form');
 import messageController from './MessageController.js';
 const MessageController = new messageController();
 
+import userController from './UserController.js';
+import gradingController from './GradingController.js';
+
 window.addEventListener('load', () => {
 
     if (anonymousMode) {

@@ -39,7 +39,11 @@ if (UserController.supports_html5_storage) {
                 const submittedGrade = progressData.courses[path][key];                
 
                 const radioBtn = document.querySelector(`input[name="${key}"][value="${submittedGrade}"]`);
-                radioBtn.checked = true;
+
+                if (radioBtn) {
+                
+                    radioBtn.checked = true;
+                }
             }
         }
 
