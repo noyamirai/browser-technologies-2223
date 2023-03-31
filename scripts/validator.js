@@ -167,6 +167,7 @@ function inputHandler(e) {
 
         errorLabel.classList.remove('hide');
         submitBtn.disabled = true;
+        e.target.focus();
 
     } else if (inputPattern) {
 
@@ -177,6 +178,7 @@ function inputHandler(e) {
 
             errorLabel.classList.remove('hide');
             submitBtn.disabled = true;
+            e.target.focus();
             return;
         } else {
             if (!errorLabel.className.includes('hide')) errorLabel.classList.add('hide');

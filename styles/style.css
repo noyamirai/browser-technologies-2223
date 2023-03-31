@@ -145,6 +145,18 @@ small {
 	white-space: nowrap;
 }
 
+	.tag > span:last-of-type {
+		display: none;
+	}
+
+	@media only screen and (min-width: 600px) {
+
+
+	.tag > span:last-of-type {
+		display: inline-block;
+	}
+	}
+
 a {
   color: hsl(206, 62%, 59%);
 }
