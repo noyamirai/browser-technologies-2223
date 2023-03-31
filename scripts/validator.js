@@ -18,9 +18,11 @@ window.addEventListener('load', () => {
     if (anonymousMode) {
         
         const userNameField = document.querySelector('[data-input-type="username"]');
+        const nameField = document.querySelector('[data-input-type="name"]');
         anonymousMode.addEventListener('change', (e) =>{
             if (e.target.checked) {
                 userNameField.classList.add('hide');
+                nameField.classList.add('hide');
 
                 if (submitBtn.disabled) {
                     submitBtn.disabled = false;
@@ -30,11 +32,17 @@ window.addEventListener('load', () => {
             }
 
             const userNameInput = userNameField.querySelector('input');
+            const nameInput = nameField.querySelector('input');
 
             if (!submitBtn.disabled && !checkPattern(userNameInput.pattern, userNameInput.value)) {
                 submitBtn.disabled = true;
             }
 
+            if (!submitBtn.disabled && !checkPattern(nameInput.pattern, nameInput.value)) {
+                submitBtn.disabled = true;
+            }
+
+            nameField.classList.remove('hide');
             userNameField.classList.remove('hide');
             return
         });

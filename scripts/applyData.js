@@ -2,6 +2,7 @@ const userNameTag = document.querySelector('[data-username-tag]');
 const defaultUserTag = document.querySelector('[data-username-default]');
 
 const anonymousForm = document.querySelector('#anonymous_mode-form');
+const userForm = document.querySelector('#personal_info-form');
 
 const progressBar = document.querySelector('[data-progress-bar]');
 
@@ -62,6 +63,36 @@ if (UserController.supports_html5_storage) {
                 tagEl.innerHTML = `(${amountAnswered}/3)`;
             }
 
+        }
+
+        if (userForm) {
+            console.log(userData.anonymous);
+
+            const nameInputField = document.querySelector(`input[name="name"]`);
+            const userNameInputField = document.querySelector(`input[name="username"]`);
+
+            if (userData.anonymous != 'on') {
+
+                nameInputField.value = userData.name;
+                userNameInputField.value = userData.username;      
+            } else {
+
+                nameInputField.closest('div').classList.add('hide');
+                userNameInputField.closest('div').classList.add('hide');
+
+                nameInputField.value = null;
+                userNameInputField.value = null;      
+            }
+
+            const emailInputField = document.querySelector(`input[name="email"]`);
+            emailInputField.value = userData.email;
+
+            const studentNumberInputField = document.querySelector(`input[name="studentnumber"]`);
+            studentNumberInputField.value = userData.studentnumber;
+
+            const anonModeCheckbox = document.querySelector('input[name="anonymous"]');
+            anonModeCheckbox.checked = true;      
+            
         }
     }
 

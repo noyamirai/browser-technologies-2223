@@ -27,6 +27,11 @@ class UserController {
 
         this.userData.totalProgress = 0;
 
+        if (this.userData.anonymous) {
+            this.userData.name = '';
+            this.userData.username = '';
+        }
+
         const jsonData = JSON.stringify(this.userData);
         localStorage.setItem(this.key, jsonData);
         

@@ -565,6 +565,11 @@ form {
 			margin-top: 1.8rem;
 		}
 
+		fieldset div + .hide,
+		fieldset .hide + div {
+			margin-top: 0;
+		}
+
 		.radio-wrapper + .grade-indicator {
 			margin-top: .8rem;
 		}
