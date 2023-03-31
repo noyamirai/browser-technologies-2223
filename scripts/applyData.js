@@ -37,14 +37,19 @@ if (UserController.supports_html5_storage) {
             const path = window.location.pathname.replace('/', '').replace('.html', '');
             
             for (const key in progressData.courses[path]) {
-                const submittedGrade = progressData.courses[path][key];                
+                const submittedGrade = progressData.courses[path][key];    
 
-                const radioBtn = document.querySelector(`input[name="${key}"][value="${submittedGrade}"]`);
-
-                if (radioBtn) {
-                
-                    radioBtn.checked = true;
+                if (key == 'note') {
+                    const textareaEl = document.querySelector(`textarea`);
+                    textareaEl.value = submittedGrade
+                } else {
+                    const radioBtn = document.querySelector(`input[name="${key}"][value="${submittedGrade}"]`);
+    
+                    if (radioBtn) {
+                        radioBtn.checked = true;
+                    }
                 }
+
             }
         }
 

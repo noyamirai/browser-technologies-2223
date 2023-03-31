@@ -544,13 +544,14 @@ form {
 				margin: 0;
 			}
 
-			input:hover {
+			input:hover, textarea:hover {
 				border: .125rem solid hsl(68, 100%, 51%);
 				/* border: .125rem solid hsl(217, 14%, 32%); */
 			}
 
 			input:focus,
-			a:focus {
+			a:focus,
+			textarea:focus {
 				outline: none;
 				/* border: .125rem solid hsl(318, 100%, 51%); */
 				border: .125rem solid hsl(68, 100%, 51%);
@@ -771,6 +772,21 @@ fieldset small {
 		animation-name: checkmarkAnimation; 
 	}
 
+
+	textarea {
+		margin-top: .575rem;
+		height: 8rem;
+		width: 100%;
+
+		background-color: transparent;
+		border: .125rem solid hsl(216, 14%, 40%);
+		padding: .75rem;
+		border-radius: .275rem;
+		transition: border 250ms ease-in-out;
+
+		min-height: 7rem;
+		resize: vertical;
+	}
 
 .message {
 	background-color: hsl(274, 92%, 57%);

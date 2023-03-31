@@ -82,8 +82,10 @@ window.addEventListener('load', () => {
             fieldSet.appendChild(errorLabel);
 
             const inputElement = fieldSet.querySelector('input');
+            if (inputElement) {
+                inputElement.addEventListener('change', inputHandler)
+            }
 
-            inputElement.addEventListener('change', inputHandler)
         });
         
     }
