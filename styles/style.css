@@ -998,66 +998,101 @@ button:disabled:hover {
 	transform: none;
 }
 
-/* RANGE */
+@media (prefers-color-scheme: light) {
+	body, footer p, .course__item a {
+		color: hsl(216, 12%, 8%);
+	}
+	
+		main,article > header {
+			background-color: hsl(0 0% 90%);
+		}
 
-/* input[type="range"] {
-	outline: 0;
-	border: 0;
+		body, main > header, footer, h2,
+		button, .btn, legend {
+			background-color: hsl(110 100% 50%);
+		}
 
-	border-radius: 500px;
+		button, .btn, .enquete input[type="radio"]:checked + span {
+			color: #FFF;
+			background-color: hsl(248 92% 57%);
+			border-color: hsl(248 92% 57%);
+		}
 
-	width: 100%;
+		.btn--secondary {
+			color: hsl(216, 12%, 8%);
+			border-color: transparent;
+			background-color: transparent;
+		}
 
-	margin: 24px 0 16px;
+		.message {
+			background-color: hsl(248 92% 57%);
+		}
 
-	transition: box-shadow 0.2s ease-in-out;
+		input:hover, input:focus, a:focus, .course__item a:focus, .enquete label:hover span, .enquete input[type="radio"]:focus + span {
+			border-color: hsl(248 92% 57%);
+		}
+
+		.checkbox-wrap input[type="checkbox"]:checked + label > span:first-of-type {
+			border-color: hsl(248 92% 57%);
+			background-color: hsl(248 92% 57%);
+		}
+
+		.checkbox-wrap label > span:first-of-type img {
+			filter: brightness(1)
+		}
+
+		small {
+			opacity: 80%;
+		}
+
+		.tag, .course__item .tag, progress[value]::-webkit-progress-bar {
+			background-color: hsl(0 2% 75% / 1);
+		}
+
+		progress[value]::-webkit-progress-value {
+			background-color: hsl(248 92% 57%);
+		}
+
+		progress[value]::-moz-progress-bar {
+			background-color: hsl(248 92% 57%);
+		}
+
+		.course__item .tag.tag--completed {
+			color: #FFF;
+			background-color: hsl(247.46deg 92.63% 57.45%);
+		}
+
+		::selection {
+			color: #FFF;
+			background: hsl(318, 100%, 51%);
+		}
+
+		::-moz-selection {
+			color: #FFF;
+			background: hsl(318, 100%, 51%);
+		}
+
+		main > footer p::selection {
+			color: hsl(216, 12%, 8%);
+			background: #FFF;
+		}
+		main > footer p::-moz-selection {
+			color: hsl(216, 12%, 8%);
+			background: #FFF;
+		}
+
+		main > header p mark::selection,
+		h2::selection,
+		button::selection {
+			color: hsl(216, 12%, 8%);
+			background: #FFF;
+		}
+		main > header p mark::-moz-selection,
+		h2::-moz-selection,
+		button::-moz-selection {
+			color: hsl(216, 12%, 8%);
+			background: #FFF;
+		}
+
+
 }
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	input[type="range"] {
-		overflow: hidden;
-		height: 1.25rem;
-
-		-webkit-appearance: none;
-		background-color: #2e343d;
-	}
-
-	input[type="range"]::-webkit-slider-runnable-track {
-		height: 1.25rem;
-		-webkit-appearance: none;
-
-		color: #444;
-
-		transition: box-shadow 0.2s ease-in-out;
-	}
-
-	input[type="range"]::-webkit-slider-thumb {
-		width: 1.25rem;
-		-webkit-appearance: none;
-		height: 1.25rem;
-		cursor: ew-resize;
-		background: #2e343d;
-		box-shadow: -340px 0 0 330px hsl(68, 100%, 51%), inset 0 0 0 3px hsl(68, 100%, 51%);
-		border-radius: 50%;
-		transition: box-shadow 0.2s ease-in-out;
-		position: relative;
-	}
-
-	input[type="range"]:active::-webkit-slider-thumb {
-		background: #2e343d;
-		box-shadow: -340px 0 0 330px hsl(68, 100%, 51%), inset 0 0 0 3px hsl(68, 100%, 51%);
-	}
-
-	input[type="range"]::-moz-range-progress {
-		background-color: hsl(68, 100%, 51%); 
-	}
-	input[type="range"]::-moz-range-track {  
-		background-color: #2e343d;
-	}
-	input[type="range"]::-ms-fill-lower {
-		background-color: hsl(68, 100%, 51%); 
-	}
-	input[type="range"]::-ms-fill-upper {  
-		background-color: #2e343d;
-	}
-} */
