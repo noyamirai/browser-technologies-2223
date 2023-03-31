@@ -18,88 +18,223 @@
 
     <main>
 
-        <!-- 
-            VRAGEN PER VAK:
-            - naam
-            - docent(en)
-            - weken waarin je het vak deed
-            - beoordeling op schaal 1-10 van
-            - lesstof (hoe moeilijk is het)
-            - uitleg (hoe duidelijk is het uitgelegd)
-            - eigen inzicht (hoe goed snap je het)
-        -->
+        <header>
+            <a href="/dashboard.html"><mark>Terug naar het overzicht</mark></a>
+        </header>
 
-        <article>
+        <article class="enquete">
 
-            <h1>Meesterproef <span>(30 mei - 30 juni 2023)</span></h1>
-            <p>Vakdocenten: Joost Faber, Koop Reynders, Justus Sturkenboom, Vasilis van Gemert, Sanne 't Hooft en Robert Spier</p>
+            <header>
 
-            <form action="/submit.html" method="GET">
-                <input type="hidden" name="course_selection" value="projectweek_1">
-                <p>Geef de onderstaande categorieën met betrekking tot het vak een cijfer van 1-10</p>
-
-                <fieldset>
-
-                    <legend>Lesstof</legend>
-                    <p>Hoe moeilijk vond je de lesstof?</p>
-
-                    <label><input type="radio" name="material_grade" id="1" required>1</label>
-                    <label><input type="radio" name="material_grade" id="2">2</label>
-                    <label><input type="radio" name="material_grade" id="3">3</label>
-                    <label><input type="radio" name="material_grade" id="4">4</label>
-                    <label><input type="radio" name="material_grade" id="5">5</label>
-                    <label><input type="radio" name="material_grade" id="6">6</label>
-                    <label><input type="radio" name="material_grade" id="7">7</label>
-                    <label><input type="radio" name="material_grade" id="8">8</label>
-                    <label><input type="radio" name="material_grade" id="9">9</label>
-                    <label><input type="radio" name="material_grade" id="10">10</label>
-
-                </fieldset>
-
-                <fieldset>
-
-                    <legend>Uitleg</legend>
-                    <p>Hoe duidelijk werd alles, waaronder de lesstof, uitgelegd aan jouw en je medestudenten?</p>
-
-                    <label><input type="radio" name="teaching_grade" id="1" required>1</label>
-                    <label><input type="radio" name="teaching_grade" id="2">2</label>
-                    <label><input type="radio" name="teaching_grade" id="3">3</label>
-                    <label><input type="radio" name="teaching_grade" id="4">4</label>
-                    <label><input type="radio" name="teaching_grade" id="5">5</label>
-                    <label><input type="radio" name="teaching_grade" id="6">6</label>
-                    <label><input type="radio" name="teaching_grade" id="7">7</label>
-                    <label><input type="radio" name="teaching_grade" id="8">8</label>
-                    <label><input type="radio" name="teaching_grade" id="9">9</label>
-                    <label><input type="radio" name="teaching_grade" id="10">10</label>
-
-                </fieldset>
-
-                <fieldset>
-
-                    <legend>Eigen inzicht</legend>
-                    <p>Hoe goed begreep je het vak?</p>
-
-                    <label><input type="radio" name="insight_grade" id="1" required>1</label>
-                    <label><input type="radio" name="insight_grade" id="2">2</label>
-                    <label><input type="radio" name="insight_grade" id="3">3</label>
-                    <label><input type="radio" name="insight_grade" id="4">4</label>
-                    <label><input type="radio" name="insight_grade" id="5">5</label>
-                    <label><input type="radio" name="insight_grade" id="6">6</label>
-                    <label><input type="radio" name="insight_grade" id="7">7</label>
-                    <label><input type="radio" name="insight_grade" id="8">8</label>
-                    <label><input type="radio" name="insight_grade" id="9">9</label>
-                    <label><input type="radio" name="insight_grade" id="10">10</label>
-
-                </fieldset>
-
-                <a href="/index.html">Annuleren</a>
-                <button type="submit">Mijn beoordeling opslaan</button>
+                <img class="web_dev-symbol image--mobile floating" src="/assets/web_dev_symbol-mobile.svg" width="72" alt="Web Dev Wars">
+                <img class="web_dev-symbol image--desktop floating" src="/assets/web_dev_symbol-desktop.svg" width="72" alt="Web Dev Wars">
                 
-            </form>
+                <h1>Meesterproef</h1>
+                <p><span class="tag"><span aria-hidden="true">{</span>Periode<span aria-hidden="true">}</span></span> 30 mei - 30 juni 2023</p>
+                <p><span class="tag"><span aria-hidden="true">{</span>Vakdocenten<span aria-hidden="true">}</span></span> Joost Faber, Koop Reynders, Justus Sturkenboom, Vasilis van Gemert, Sanne 't Hooft en Robert Spier</p>
+            </header>
+
+            <hr>
+
+            <section>
+
+                <!-- <h2>REVIEW TIME</h2> -->
+                <p>Geef de onderstaande categorieën met betrekking tot het vak een cijfer van <span class="tag"><span aria-hidden="true">{</span>1-10<span aria-hidden="true">}</span></p>
+                <img class="smiley-stamp image--desktop floating" src="/assets/smiley_stamp.svg" width="92" alt="">
+                
+                <form action="/submit.html" method="GET" id="questionnaire-form">
+                    <input type="hidden" name="course_selection" value="meesterproef">
+    
+                    <fieldset data-grade-wrapper data-grade-category="material_grade">
+    
+                        <legend>Lesstof</legend>
+                        <p>Hoe zou je de inhoud van de lesstof beoordelen?</p>
+
+                        <!-- <input type="range" min="1" max="10" step="1" name="material_gradie" id="material_grade"> -->
+
+                        <div class="radio-wrapper">
+                           <label>
+                                <input type="radio" name="material_grade" id="1" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="2" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="3" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="4" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="5" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="6" value="6">
+                                <span>6</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="7" value="7">
+                                <span>7</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="8" value="8">
+                                <span>8</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="9" value="9">
+                                <span>9</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="material_grade" id="10" value="10">
+                                <span>10</span>
+                            </label>
+                        </div>
+
+                        <div class="grade-indicator">
+                            <p>niet relevant</p>
+                            <p>perfect</p>
+                        </div>
+
+                    </fieldset>
+                    <fieldset data-grade-wrapper data-grade-category="teaching_grade">
+    
+                        <legend>Uitleg</legend>
+                        <p>Hoe goed begreep je de uitleg van de lesstof?</p>
+
+                        <div class="radio-wrapper">
+                            <label>
+                                <input type="radio" name="teaching_grade" id="1" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="2" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="3" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="4" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="5" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="6" value="6">
+                                <span>6</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="7" value="7">
+                                <span>7</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="8" value="8">
+                                <span>8</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="9" value="9">
+                                <span>9</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="teaching_grade" id="10" value="10">
+                                <span>10</span>
+                            </label>
+                        </div>
+
+                        <div class="grade-indicator">
+                            <p>zeer slecht</p>
+                            <p>perfect</p>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset data-grade-wrapper data-grade-category="insight_grade">
+    
+                        <legend>Workload</legend>
+                        <p>Hoe ervaarde jij de <em>workload <small>(hoeveelheid werk)</small></em> van dit vak?</p>
+
+                        <div class="radio-wrapper">
+                            <label>
+                                <input type="radio" name="insights_grade" id="1" value="1">
+                                <span>1</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="2" value="2">
+                                <span>2</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="3" value="3">
+                                <span>3</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="4" value="4">
+                                <span>4</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="5" value="5">
+                                <span>5</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="6" value="6">
+                                <span>6</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="7" value="7">
+                                <span>7</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="8" value="8">
+                                <span>8</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="9" value="9">
+                                <span>9</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="insights_grade" id="10" value="10">
+                                <span>10</span>
+                            </label>
+                        </div>
+
+                        <div class="grade-indicator">
+                            <p>zeer laag</p>
+                            <p>zeer hoog</p>
+                        </div>
+
+                    </fieldset>
+                    <fieldset data-grade-wrapper data-grade-category="note">
+    
+                        <legend>Lucht je hart</legend>
+                        <p>Wil je nog iets kwijt? We bijten niet :)</p>
+
+                        <textarea name="note" id="note"></textarea>
+
+                    </fieldset>
+
+                    <hr>
+
+                    <div class="btn-container">
+                        <a class="btn btn--secondary" href="/dashboard.html">Annuleren</a>
+                        <button type="submit">Mijn beoordeling opslaan</button>
+                    </div>
+    
+                    
+                </form>
+            </section>
+
 
         </article>
-
     </main>
     
+    <script src="/scripts/applyData.js" type="module"></script>
+    <script src="/scripts/validator.js" type="module"></script>
 </body>
 </html>

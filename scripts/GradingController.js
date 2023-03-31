@@ -42,13 +42,13 @@ class GradingController {
             this.defaultCourses = currentCouresProgress;
             this.defaultCourses[formData.course_selection] = newData;
 
-            const finishedAll = (Object.keys(formData).length - 1) == 3 ? true : false;
+            const finishedAll = (Object.keys(formData).length - 2) == 3 ? true : false;
             const allGradedCourses = this.listGradedCourses();
             const completedBefore = this.checkIfCompletedBefore(formData.course_selection);
 
             console.log(allGradedCourses);
             console.log(completedBefore.length);
-            
+            console.log(finishedAll);
 
             let totalPoints = 0;
 
@@ -57,7 +57,10 @@ class GradingController {
             }
 
             if (completedBefore.length == 0 && finishedAll) {
+                console.log('completed > add points');
                 totalPoints = totalPoints + 1;
+
+                console.log(totalPoints);
             }
 
 

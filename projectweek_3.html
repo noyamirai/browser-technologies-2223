@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="theme-color" content="#deff05">
 
-    <title>Projectweek 2 - Web Development Wars</title>
+    <title>Projectweek 3 - Web Development Wars</title>
 
     <link rel="stylesheet" href="/styles/style.css">
 
@@ -29,9 +29,9 @@
                 <img class="web_dev-symbol image--mobile floating" src="/assets/web_dev_symbol-mobile.svg" width="72" alt="Web Dev Wars">
                 <img class="web_dev-symbol image--desktop floating" src="/assets/web_dev_symbol-desktop.svg" width="72" alt="Web Dev Wars">
                 
-                <h1>Projectweek 2</h1>
-                <p><span class="tag"><span aria-hidden="true">{</span>Periode<span aria-hidden="true">}</span></span> 13 februari - 10 maart 2023</p>
-                <p><span class="tag"><span aria-hidden="true">{</span>Vakdocenten<span aria-hidden="true">}</span></span> Joost Faber, Robert Spier, Vasilis van Gemert en Sanne 't Hooft</p>
+                <h1>Projectweek 3</h1>
+                <p><span class="tag"><span aria-hidden="true">{</span>Periode<span aria-hidden="true">}</span></span> 11 april - 14 april 2023</p>
+                <p><span class="tag"><span aria-hidden="true">{</span>Vakdocenten<span aria-hidden="true">}</span></span> Justus Sturkenboom, Shyanta Vleugel (Triple), Eric Groot Kormelink en Koop Reynders</p>
             </header>
 
             <hr>
@@ -43,12 +43,12 @@
                 <img class="smiley-stamp image--desktop floating" src="/assets/smiley_stamp.svg" width="92" alt="">
                 
                 <form action="/submit.html" method="GET" id="questionnaire-form">
-                    <input type="hidden" name="course_selection" value="projectweek_2">
+                    <input type="hidden" name="course_selection" value="projectweek_3">
     
                     <fieldset data-grade-wrapper data-grade-category="material_grade">
     
                         <legend>Lesstof</legend>
-                        <p>Hoe moeilijk vond je de lesstof?</p>
+                        <p>Hoe zou je de inhoud van de lesstof beoordelen?</p>
 
                         <!-- <input type="range" min="1" max="10" step="1" name="material_gradie" id="material_grade"> -->
 
@@ -96,15 +96,15 @@
                         </div>
 
                         <div class="grade-indicator">
-                            <p>niet moeilijk</p>
-                            <p>begreep er niks van</p>
+                            <p>niet relevant</p>
+                            <p>perfect</p>
                         </div>
 
                     </fieldset>
                     <fieldset data-grade-wrapper data-grade-category="teaching_grade">
     
                         <legend>Uitleg</legend>
-                        <p>Mate waarin de lesstof werd uitgelegd</p>
+                        <p>Hoe goed begreep je de uitleg van de lesstof?</p>
 
                         <div class="radio-wrapper">
                             <label>
@@ -151,15 +151,15 @@
 
                         <div class="grade-indicator">
                             <p>zeer slecht</p>
-                            <p>super goed</p>
+                            <p>perfect</p>
                         </div>
 
                     </fieldset>
 
                     <fieldset data-grade-wrapper data-grade-category="insight_grade">
     
-                        <legend>Eigen inzicht</legend>
-                        <p>Hoe goed snap je het nu?</p>
+                        <legend>Workload</legend>
+                        <p>Hoe ervaarde jij de <em>workload <small>(hoeveelheid werk)</small></em> van dit vak?</p>
 
                         <div class="radio-wrapper">
                             <label>
@@ -205,9 +205,17 @@
                         </div>
 
                         <div class="grade-indicator">
-                            <p>kan er niks van</p>
-                            <p>expert level</p>
+                            <p>zeer laag</p>
+                            <p>zeer hoog</p>
                         </div>
+
+                    </fieldset>
+                    <fieldset data-grade-wrapper data-grade-category="note">
+    
+                        <legend>Lucht je hart</legend>
+                        <p>Wil je nog iets kwijt? We bijten niet :)</p>
+
+                        <textarea name="note" id="note"></textarea>
 
                     </fieldset>
 
