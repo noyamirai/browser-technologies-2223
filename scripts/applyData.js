@@ -105,6 +105,8 @@ if (UserController.supports_html5_storage) {
 
 function setProgressBar(userData) {
     progressBar.value = userData.totalProgress;
+    const indicator = progressBar.querySelector('[data-progress-bar-label]');
+    indicator.innerHTML = (userData.totalProgress*10) + '%';
 }
 
 function setAnonMode(userData) {

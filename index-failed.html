@@ -75,8 +75,12 @@
                     <img src="./assets/single_arrow-green.svg" width="50" alt="Arrow icon">
                 </div>
 
-                <!-- PREFILLED -->
                 <form action="./dashboard.html" method="GET" id="personal_info-form">
+
+                    <div class="message">
+                        <p>Je bent één van de onderstaande met geel aangegeven velden vergeten in te vullen!</p>
+                    </div>
+                    
                     <fieldset>
 
                         <div data-input-wrapper data-input-type="name">
@@ -91,7 +95,7 @@
 
                         <div data-input-wrapper data-input-type="email">
                             <label for="email"><span aria-hidden="true">{</span> E-mailadres <span aria-hidden="true">}</span> *</label>
-                            <input type="text" name="email" id="email" placeholder="E-mailadres" value="maijla.ikiz@hva.nl" autocapitalize="off" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
+                            <input class="error-input" type="text" name="email" id="email" placeholder="E-mailadres" value="maijla.ikiz@hva.nl" autocapitalize="off" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
                         </div>
 
                         <div data-input-wrapper data-input-type="studentnumber">

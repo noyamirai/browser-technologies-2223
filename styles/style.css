@@ -138,6 +138,7 @@ small {
 }
 
 .tag {
+	display: inline-block;
 	background-color: hsl(216, 14%, 40%);
 	padding: 0 .15rem;
 	border-radius: .2rem;
@@ -557,10 +558,9 @@ form {
 				border: .125rem solid hsl(68, 100%, 51%);
 			}
 
-			input::placeholder {
+			/* input::placeholder {
 				color: hsl(216, 14%, 40%);
-				/* color: hsl(217, 10%, 43%); */
-			}
+			} */
 
 		fieldset div + div {
 			margin-top: 1.8rem;
@@ -795,9 +795,20 @@ fieldset small {
     border-radius: 0.275rem;
 }
 
+form > .message {
+	margin-top: 0;
+	margin-bottom: 2rem;
+}
+
+
+.error-input {
+	border-color: hsl(68, 100%, 51%)!important;
+}
+
 	.message p {
 		color: hsl(240, 2%, 88%);
 		font-size: .775rem;
+		margin: 0;
 	}
 /* =============================================================================
   #COURSES
@@ -877,14 +888,13 @@ fieldset small {
 		}
 
 		progress {
-			/* Reset the default appearance */
 			-webkit-appearance: none;
 			appearance: none;
 
 			width: 30%;
 			height: .8rem;
 			border-radius: .5rem;
-			border: none; /* Needed for Firefox */
+			border: none;
 		}
 
 		progress[value]::-webkit-progress-bar {
