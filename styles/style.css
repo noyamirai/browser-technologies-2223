@@ -1059,7 +1059,8 @@ button:disabled:hover {
 			background-color: hsl(248 92% 57%);
 		}
 
-		input:hover, input:focus, a:focus, .course__item a:focus, .enquete label:hover span, .enquete input[type="radio"]:focus + span {
+		input:hover, input:focus, a:focus, .course__item a:focus, .enquete label:hover span, .enquete input[type="radio"]:focus + span,
+		textarea:focus, textarea:hover {
 			border-color: hsl(248 92% 57%);
 		}
 
