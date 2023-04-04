@@ -82,6 +82,7 @@ if (UserController.supports_html5_storage) {
                 userNameInputField.value = userData.username;      
             } else {
 
+                console.log('hi');
                 nameInputField.closest('div').classList.add('hide');
                 userNameInputField.closest('div').classList.add('hide');
 

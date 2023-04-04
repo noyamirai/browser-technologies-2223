@@ -34,11 +34,15 @@ window.addEventListener('load', () => {
             const userNameInput = userNameField.querySelector('input');
             const nameInput = nameField.querySelector('input');
 
-            if (!submitBtn.disabled && !checkPattern(userNameInput.pattern, userNameInput.value)) {
+            if ((!submitBtn.disabled && nameInput.value == '') || nameInput.value == '') {
+                const errorLabel = document.querySelector('[data-message-label-for="name"]');
+                errorLabel.classList.remove('hide');
                 submitBtn.disabled = true;
             }
 
-            if (!submitBtn.disabled && !checkPattern(nameInput.pattern, nameInput.value)) {
+            if ((!submitBtn.disabled && !checkPattern(userNameInput.pattern, userNameInput.value)) || !checkPattern(userNameInput.pattern, userNameInput.value)) {
+                const errorLabel = document.querySelector('[data-message-label-for="username"]');
+                errorLabel.classList.remove('hide');
                 submitBtn.disabled = true;
             }
 

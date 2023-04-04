@@ -1,123 +1,119 @@
-# Browser Technologies @cmda-minor-web 2022 - 2023
+# Web Development Wars
 
-_Robuuste, toegankelijke websites ontwerpen en maken …_
+For the course "Browser Technologies" we were tasked to look into what Progressive Enhancement is and how we can apply it to create good and accessible websites. The web is for everyone, and for our assignement we learned how to ensure that.
 
-Één van de mooiste [principes](https://www.w3.org/DesignIssues/Principles.html) van het web is dat iedereen met een computer en een browser het web kan gebruik. [Het web is voor iedereen](https://www.youtube.com/watch?v=UMNFehJIi0E). Het is geen gecontroleerde (programmeer) omgeving, je kan er gerust van uit gaan dat niemand precies hetzelfde te zien krijgt als wat jij in je browser ziet. Er zijn technische beperkingen, zoals afmetingen van de browser, grootte van het apparaat, manier van interactie, kwaliteit van de hardware, kwaliteit van het netwerk en er zijn mensen, allemaal verschillende mensen ...
+There were several user stories we could pick from. The one I picked was called "Survey about the Web Development minor", see full user story below:
 
-In het vak Browser Technologies gaan we onderzoeken wat Progressive Enhancement is en hoe je dit kan toepassen om goede, robuuste, toegankelijke websites te maken. Voor iedereen. Het web is voor iedereen, in dit vak leer je hoe je daarvoor kan zorgen.
+> I want to be able to fill out a survey about the Web Development minor, with various answer options. I want to clearly see where I am and how much I still have to do. I want to be able to review previously filled in questions. If I can't finish the survey, I want to be able to continue later from where I left off.
 
-## Opdrachten
+## :bulb: Core features
 
-het vak bestaat uit 2 opdrachten. We werken eerst even aan opdracht 1. Op dag twee beginnen we te werken aan de eindopdracht.
+To be able to ensure everyone in every context is able to fill out the survey, we need to define the core features. Obviously, students need to be able to submit a form containing questions about the minor. But there are a few other features/requirements needed:
 
-### Wat is Progressive-enhancement en hoe werkt het?
+- Login with name, email, studentnumber
+- Anonymous mode option
+- Show course teachers
+- Show course dates
+- Submit a survey for each course within the minor
+- Revision course survey submissions
+- See total survey progress
 
-Voor de eerste opdracht gaan we onderzoeken wat Progressive Enhancement is.
+Besides these core features, I wanted to add a bit of *fun* to the assignment. So I change it from a 'normal' survey to a more gamificationalized(?) survey, based on the concept of eiher rewarding students for valuable feedback (rated by teachers) or speed in which students fill out the first course survey. Once all course surveys are filled out, students would be shown a leaderboard consisting all other students who finished the surveys. I did not really put much thought into this gamification survey, since the core features are being able to fill out a survey, and there was not a lot of time either.
 
-- [Opdracht 1 - NPM install Progressive Enhancement](assignments/opdracht-1.md)
+## :art: Quick design
 
+At first, I wanted to kind of freestyle my way through the UI as I got started with the HTML structure. Once it was time to add CSS I felt stuck. I just HAD to make a quick design to establish the overall look and feel of the site.
 
-### Eindopdracht ✨ Progressively Enhanced Browser Technology
+![Web Dev Wars Design]('./assets/web_dev_wars-preview.png')
 
-Voor de eindopdracht ontwerp en maak je een interactieve toepassing volgens het principe van Progressive Enhancement. Zorg dat alle gebruikers, met alle browsers, in iedere context de toepassing zo goed mogelijk te zien, horen en/of voelen krijgen. De meest 'enhanced' versie is 'delightful UX', mooi en prettig om te gebruiken.
+## :rainbow: Progressive Enhancement
 
-- [De eindopdracht - Progressive Enhanced Browser Technologie](assignments/eindopdracht.md)
+I applied progressive enhancement 'over time'. As mentioned before, I  first started with setting up a solid HTML structure and tried to make sure to keep everything semantic. Without any CSS or Javascript the site should still be able to work, which it does. Thanks to HTML client-side form validation is possible to a certain extent (pattern checking and required fields). Other validations would have to be done via the server.
 
+After creating the design and HTML structure, I added responsive styling. I (of course) started with mobile/small screens and used media queries for bigger screens when necessary. The next step was to add some Javascript. I do want to note that I used a bit more Javascript than needed for demo purposes (for example: saving data in localstorage). Other than that all I really added as part of 'enhancement' in regards of Javascript was field validation on the login page. Based on patterns or whether or not a field is empty, I display/hide feedback labels. I chose not to make them scream error messages or make them red, instead I wanted to keep the overal playful energy by using one of the main colors and incorporating 'friendly' feedback.
 
-### Leerdoelen
-- _je leert wat Progressive enhancement is en hoe je dit kan toepassen._
-- _je leert Browser Technologies te onderzoeken, testen en implementeren als enhancement._
-- _je leert hoe je Feature Detection doet en wat je kan doen als een 'feature' niet werkt of wordt ondersteund._
+![Web Dev Wars Feedback]('./assets/web_dev_wars-preview-feedback.png');
 
-[Rubric](https://icthva.sharepoint.com/:x:/s/FDMCI_EDU_CMD_Minor_Web_Design__Development/ET8k_fDG3VVPvqMkqx2uCusBR5-yeGaKo01meb9bDorLuQ?e=0hbmOk)
+I also designed my website to be functional without need of Javascript. One of the core requirements was that students should be able to revision their survey answers. By separating course surveys into their own different form pages, I did not have to battle to save progress in localstorage for example. Each time a student wants to save a single or multiple survey answers, they have to submit a form. This means the form submission would get send to the server, which then gets saved in a database. Then, with help of server-side rendering, next time the student navigates to said course survey, the server can define which of the answers they have already answered by fetching the necessary data from the respective database.
 
-## Planning & programma
+## Feature Detection
 
-| Planning  | Woensdag  |  Donderdag | Vrijdag  |
-|---|---|---|---|
-| [Week 1](#week-1)  | Intro, College + briefing opdracht 1 | Presentaties opdracht 1, briefing eindopdracht, college | Voortgangsgesprekken |
-| [Week 2](#week-2)  | College + Briefing De eindopdracht  | College + werken aan de opdracht | Feedbackgesprekken  |
-| [Week 3](#week-3)  | Beoordelingen!  |
+To ensure **everyone** is able to experience the best user experience in any type of context, I made use of feature detection. For example, in Javascript whenever I have to do something that involves localstorage, I call this function:
 
-### Week 1
+```js
+// SOURCE: https://stackoverflow.com/questions/32902659/detect-if-browser-allows-setting-localstorage-setitem
+supports_html5_storage() {
+    try {
+        if ('localStorage' in window && window['localStorage'] !== null) {
+            localStorage.setItem("testitem",true);
+            localStorage.getItem("testitem");
+            localStorage.removeItem("testitem");
+            return true;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+```
 
-Het web is voor iedereen: Deze week gaan we onderzoeken wat Progressive Enhancement is en kennismaken met testen en het device lab.
+This function not only checks if localstorage is supported, but if it also *actually* works. If it doesn't work, my app won't break, it will just not use localstorage! Another feature detection I used was in CSS. For example, my animations will only be active when the user has no preferences set in regards of reduced motion:
 
-#### Woensdag 22 maart
+```css
+@media only screen and (min-width: 900px) and (prefers-reduced-motion: no-preference ) {
+    .floating {
+        transform: translate(0,0); /* Set the initial position of the box */
+        transition: transform 1s ease-in-out; /* Add a transition effect */
+        animation: floating 2.5s infinite; /* Add a continuous animation */
+    }
 
-Browser Technolgies begint op woensdag. In het eerste college krijg je uitleg over het programma en over het nut van Progressive Enancement. Wat is dat eigenlijk? De meeste CMD studenten hebben dit waarschijnlijk al eens gehoord en misschien iets mee gedaan in blok Tech. Progressive Enhancement, oftewel PE, is een manier hoe je je de code van een website kan bouwen zodat alle gebruikers met alle browsers je website zo goed mogelijk te zien krijgen. Met PE kun je robuuste websites bouwen die het altijd doen. PE is een manier van denken.
+    .floating:nth-of-type(odd) {
+        animation: floating 2.5s -1.5s infinite; /* Add a continuous animation */
+    }
+}
+```
 
-| Woensdag 22/3 | Wat  |
-|---|---|
-| 9:30 | College les 1 over het vak, wie, wat, waar en waarom |
-|  | [Briefing Opdracht 1 🛹 NPM install Progressive-Enhancement](assignments/opdracht-1.md) |
-| 16:00 | Weekly Nerd |
+## :eye: Accessibility
 
-##### Lezen voor les 1 📖
+To ensure accessibility, I went through my website with the "Color Contrast Analyser". This analyser allowed me to use a color picker and select fore- and background colors to show the contrast ratio. As seen in the results below, the contrast ratio of my text components all meet the required measurements, and the UI contrast meet mostly the UI requirements:
 
-- [Everyone has JavaScript, right? by Stuart Langridge](https://kryogenix.org/code/browser/everyonehasjs.html)
+![Web Dev Wars - Color Contrast]('./assets/web_dev_wars-color_contrast_analyzer.png')
 
+Besides color contrast, I also made sure the site was navigatable via keyboard (tab usage) and that the user clearly sees which fields/links are currently focused. For screenreaders I added a few `aria-hidden` attributes to make sure it does not read visual elements in text such as `{}`.
 
-#### Donderdag 23 maart
+## :globe_with_meridians: Tested browsers
 
-Donderdag gaan we opdracht 1 bekijken en bespreken. Als het goed is heb je een beeld gevormd van Progressive Enhancement. Tijdens de les duiken we hier met zijn allen dieper op in, gebaseerd op de resultaten van jullie onderzoek.
+| Browser (Desktop) | Passed                   |
+|--------------------|---------------------------------|
+| Chrome              | :white_check_mark:                   |
+| Firefox      | :white_check_mark: |
+| Safari   | :white_check_mark:    |
+| Flow     | the best it can                    |
 
-Zorg dat je de bevindingen van je onderzoek online kan presenteren. We gaan de hele feature lijst doorlopen en alle studenten kunnen laten zien wat ze hebben onderzocht, met voorbeelden, de problemen, cijfers en/of meningen. Bedenk ook hoe je de problemen zou kunnen oplossen.
+| Browser (Mobile) | Passed                   |
+|--------------------|---------------------------------|
+| Safari              | :white_check_mark:                   |
+| Samsung Internet      | :white_check_mark: |
+| UC Browser   | :white_check_mark:    |
+| Chrome     | :white_check_mark:                    |
 
-Daarna krijg je uitleg over opdracht 2. Voor deze opdracht ga je proberen het web te laten 'breken' door (browser) features bewust uit te zetten. Wat gebeurt er als images, custom fonts, JavaScript, kleur, breedband internet niet optimaal werken?
+### :mag_right: Flow test results
 
-| Donderdag 23/3 | Wat  |
-|---|---|
-| 9:30 | Opdracht 1 bespreken 🛹 |
-| 10:30 | [Briefing eindopdracht](assignments/eindopdracht.md) |
-| 15:30 | College les 2 over de UX van HTML |
-| 16:00 | Checkout per team |
+Flow is a web browser with a proprietary browser engine that claims to “dramatically improve rendering performance” and is being developed by the Ekioh company. The browser has no documentation, meaning it is quite hard to figure out what it supports and what it does not support. These were some of my findings when testing my survey site:
 
-Lezen voor les 2 📖
+- `border-radius` on `span` elements that do not have `display` property set **does not** work
+- There is **no** pointer cursor
+- No CSS animation triggered with `prefers-reduced-motion` query
+- Javascript modules may not be supported
+- `<progress>` element not supported
+- Values of input fields on inital load are either transparent or the same color as the background
+- `::placeholder` property not supported
+- No native HTML form validate (would be dealt by server)
 
-- [The unreasonable effectiveness of simple HTML by Terence Eden](https://shkspr.mobi/blog/2021/01/the-unreasonable-effectiveness-of-simple-html/)
+### :mag_right: UC Mobile test results
 
-#### Vrijdag 25 maart
+- Javascript modules maybe not *really* supported even though [caniuse.com](https://caniuse.com) states it does support it
 
-Vrijdag is het eerste voortgangsgesprek. Je bespreekt met de docent je keuze voor de eindopdracht. Er is alle tijd voor vragen, natuurlijk.
+### :mag_right: Chrome (android)
 
-| Vrijdag 25/3 | Wat  |
-|---|---|
-| 9:30 | Voortgangsgesprekken |
-| 16:00 | Work Hard Play Hard |
+- For some reason localstorage works, but it cannot set the saved values (for exmaple: course revision does not set previous selected/saved data)
 
-### Week 2
-
-In week 2 ga je verder met de eindopdracht. We hebben in week 1 onderzocht wat PE is en welke feautures wel of niet goed worden ondersteund. Deze week gaan we leren hoe je een interactieve toepassing in 3 lagen kan ontwerpen en wat je kan doen als een browser een 'enhancement' niet kan tonen.
-
-#### Woensdag 29 maart
-
-Woensdag krijg je een college over browsers, en alles (!) wat daarbij hoort. Daarna gaan we aan de slag: als je een interactieve toepassing ontwerpt die alle gebruikers, met alle browsers moeten kunnen zien, dan zul je moeten bedenken hoe je de toepassing in 3 lagen kan opbouwen, eerst bepaal je de core functionaliteit en de user-delight ... schetsen maar!
-
-| Woensdag 29/3 | Wat  |
-|---|---|
-| 9:30 | College van PPK over browsers! |
-| 16:00 | Checkout per team |
-
-#### Donderdag 30 maart
-
-Donderdag eindigt de les laat! Onze gastspreker kan pas om 18:00. Je kan de hele dag verder werken aan je eindopdracht.
-
-| Donderdag 30/3 | Wat  |
-|---|---|
-| 9:30 | Aan de slag |
-| 11:30 | Uitleg beoordelingen |
-| 18:00 | Gastcollege Aaron Gustafson |
-
-Lezen voor les 4 📖
-
-- [Be progressive by Jeremy Keith](https://adactio.com/journal/7706)
-
-#### Vrijdag 31 maart
-
-Vrijdag bespreken we in groepjes de vorderingen voor de eindopdracht. Zorg dat je vandaag weet welke browsers (en devices) jij gaat testen.
-
-| Vrijdag 31/3 | Wat  |
-|---|---|
-| 9:30 | Vorderingen bespreken & feedback in groepjes |
-| 16:00 | Work Hard Play Hard |
