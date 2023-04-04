@@ -128,7 +128,7 @@ if (userForm) {
 
         UserController.saveUserData(formProps);
 
-        window.location = './dashboard.html';
+        window.location = './confirmation.html';
     }
 
 }
@@ -144,7 +144,7 @@ if (questionnaireForm) {
         const GradingController = new gradingController(formProps);
         GradingController.updateProgress(formProps);
 
-        window.location = './dashboard.html';
+        window.location = './confirmation.html';
     });
 
 }
