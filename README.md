@@ -24,7 +24,7 @@ Besides these core features, I wanted to add a bit of *fun* to the assignment. S
 
 At first, I wanted to kind of freestyle my way through the UI as I got started with the HTML structure. Once it was time to add CSS I felt stuck. I just HAD to make a quick design to establish the overall look and feel of the site.
 
-![Web Dev Wars Design]('./assets/web_dev_wars-preview.png')
+![Web Dev Wars Design]('https://github.com/noyamirai/webdevwars/blob/main/assets/web_dev_wars-preview.png')
 
 ## :rainbow: Progressive Enhancement
 
@@ -32,7 +32,7 @@ I applied progressive enhancement 'over time'. As mentioned before, I  first sta
 
 After creating the design and HTML structure, I added responsive styling. I (of course) started with mobile/small screens and used media queries for bigger screens when necessary. The next step was to add some Javascript. I do want to note that I used a bit more Javascript than needed for demo purposes (for example: saving data in localstorage). Other than that all I really added as part of 'enhancement' in regards of Javascript was field validation on the login page. Based on patterns or whether or not a field is empty, I display/hide feedback labels. I chose not to make them scream error messages or make them red, instead I wanted to keep the overal playful energy by using one of the main colors and incorporating 'friendly' feedback.
 
-![Web Dev Wars Feedback]('./assets/web_dev_wars-preview-feedback.png');
+![Web Dev Wars Feedback]('https://github.com/noyamirai/webdevwars/blob/main/assets/web_dev_wars-preview-feedback.png');
 
 I also designed my website to be functional without need of Javascript. One of the core requirements was that students should be able to revision their survey answers. By separating course surveys into their own different form pages, I did not have to battle to save progress in localstorage for example. Each time a student wants to save a single or multiple survey answers, they have to submit a form. This means the form submission would get send to the server, which then gets saved in a database. Then, with help of server-side rendering, next time the student navigates to said course survey, the server can define which of the answers they have already answered by fetching the necessary data from the respective database.
 
@@ -76,7 +76,7 @@ This function not only checks if localstorage is supported, but if it also *actu
 
 To ensure accessibility, I went through my website with the "Color Contrast Analyser". This analyser allowed me to use a color picker and select fore- and background colors to show the contrast ratio. As seen in the results below, the contrast ratio of my text components all meet the required measurements, and the UI contrast meet mostly the UI requirements:
 
-![Web Dev Wars - Color Contrast]('./assets/web_dev_wars-color_contrast_analyzer.png')
+![Web Dev Wars - Color Contrast]('https://github.com/noyamirai/webdevwars/blob/main/assets/web_dev_wars-color_contrast_analyzer.png')
 
 Besides color contrast, I also made sure the site was navigatable via keyboard (tab usage) and that the user clearly sees which fields/links are currently focused. For screenreaders I added a few `aria-hidden` attributes to make sure it does not read visual elements in text such as `{}`.
 
